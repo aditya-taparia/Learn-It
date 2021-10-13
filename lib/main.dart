@@ -31,7 +31,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Learn It App'),
+      child: Text('Learn It'),
     );
   }
 }
