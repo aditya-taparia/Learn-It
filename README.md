@@ -1,6 +1,6 @@
 # learn_it
 
-A E-learning Application made using flutter.
+A new Flutter project.
 
 ## Getting Started
 
