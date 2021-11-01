@@ -54,7 +54,12 @@ class _CourseListState extends State<CourseList> {
   @override
   Widget build(BuildContext context) {
     final courses = Provider.of<List<Course>?>(context);
-    if (courses!.isEmpty) {
+    if (courses == null) {
+      return const Center(
+        child: Loading(),
+      );
+    }
+    if (courses.isEmpty) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
