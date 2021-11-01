@@ -52,43 +52,78 @@ final useicon = [
   ),
 ];
 final setting_screen = [
-  const Developer(),
+  Scaffold(
+    appBar: AppBar(
+        title: Text("Our Story"),
+        backgroundColor: Color.fromRGBO(0, 74, 140, 1)),
+    body: Column(
+      //mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        SizedBox(
+          height: 20,
+        ),
+        Text(
+          "Done as a part of CSE 312 Software Engeneering and Project Management",
+          style: TextStyle(fontSize: 20, color: Color.fromRGBO(0, 74, 140, 1)),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Text(
+          "By a group of jobless people who got together to form team Aviat’O",
+          style: TextStyle(fontSize: 20, color: Color.fromRGBO(0, 74, 140, 1)),
+        ),
+      ],
+    ),
+  ),
   Scaffold(
     appBar: AppBar(
       title: Text("Privacy Policy"),
       backgroundColor: Color.fromRGBO(0, 74, 140, 1),
     ),
-    body: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            "Secure logging in information:",
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          const Text(
-              "We might provide our users with logging in capability to create a profile for themselves on our application. These accounts will be password protected and it is the responsibility of the customers to make sure that they protect their logging in information by limiting access to your computer and by signing off  on the browser after use. We work towards protecting your user information and to ensure that the user accounts are kept private and secure however, the company cannot guarantee the security of user account information. Unauthorized entry or use, hardware or software failure, and other factors from the user side, may compromise the security of users information at any time. With the user profile capability, the users will be able to access their personal profile information such as name, phone number and email address etc. and change them at any time."),
-          SizedBox(
-            height: 20,
-          ),
-          const Text(
-            "E-mails:",
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          const Text(
-              "When a customer receives any communication from LEARNIt Pvt Ltd or any of its associated or employees, we generally receive a confirmation, given the second party’s computer support such programs. This information is collected with the purpose of improving the emails send from us and to make it more interesting and helpful.  Customers can opt out of receiving emails by using the unsubscribing option available with every email sent."),
-          SizedBox(
-            height: 20,
-          ),
-          const Text(
-            "Privacy policy updates or changes:",
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          const Text(
-              "We reserve the right to update or revise this privacy policy. Information collected now is subject to the current version of Privacy policy in effect. Any changes in the privacy policy will be notified on the company’s website, but it is suggested that the users go through them from time to time to keep themselves updated.  The current version governs our information collection and privacy policy and by using our services you agree to be bound by the current privacy policy."),
-        ],
+    body: SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              "Secure logging in information:",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            const Text(
+                "We might provide our users with logging in capability to create a profile for themselves on our application. These accounts will be password protected and it is the responsibility of the customers to make sure that they protect their logging in information by limiting access to your computer and by signing off  on the browser after use. We work towards protecting your user information and to ensure that the user accounts are kept private and secure however, the company cannot guarantee the security of user account information. Unauthorized entry or use, hardware or software failure, and other factors from the user side, may compromise the security of users information at any time. With the user profile capability, the users will be able to access their personal profile information such as name, phone number and email address etc. and change them at any time."),
+            SizedBox(
+              height: 20,
+            ),
+            const Text(
+              "E-mails:",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            const Text(
+                "When a customer receives any communication from LEARNIt Pvt Ltd or any of its associated or employees, we generally receive a confirmation, given the second party’s computer support such programs. This information is collected with the purpose of improving the emails send from us and to make it more interesting and helpful.  Customers can opt out of receiving emails by using the unsubscribing option available with every email sent."),
+            SizedBox(
+              height: 20,
+            ),
+            const Text(
+              "Privacy policy updates or changes:",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            const Text(
+                "We reserve the right to update or revise this privacy policy. Information collected now is subject to the current version of Privacy policy in effect. Any changes in the privacy policy will be notified on the company’s website, but it is suggested that the users go through them from time to time to keep themselves updated.  The current version governs our information collection and privacy policy and by using our services you agree to be bound by the current privacy policy."),
+          ],
+        ),
       ),
     ),
   ),
