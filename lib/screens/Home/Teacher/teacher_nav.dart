@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_it/screens/Settings/setting.dart';
 
 class TeacherNav extends StatefulWidget {
   const TeacherNav({Key? key}) : super(key: key);
@@ -20,6 +21,7 @@ class _TeacherNavState extends State<TeacherNav> {
     const Center(
       child: Text('Chat Page'),
     ),
+    const Setting(),
   ];
 
   @override
@@ -81,6 +83,17 @@ class _TeacherNavState extends State<TeacherNav> {
                 color: Colors.white,
               ),
               label: 'Chat',
+            ),
+            NavigationDestination(
+              icon: Icon(
+                Icons.settings_rounded,
+                color: Color.fromRGBO(0, 75, 141, 1),
+              ),
+              selectedIcon: Icon(
+                Icons.settings_rounded,
+                color: Colors.white,
+              ),
+              label: 'Settings',
             ),
           ],
         ),
