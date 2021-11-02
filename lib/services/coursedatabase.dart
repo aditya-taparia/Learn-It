@@ -12,6 +12,8 @@ class CourseDatabase {
       return Course(
         coursename: doc['coursename'],
         teachername: doc['teachername'],
+        description: doc['description'],
+        students: doc['enrolled_students'],
       );
     }).toList();
   }
