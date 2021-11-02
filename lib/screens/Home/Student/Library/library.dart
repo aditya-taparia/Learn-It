@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learn_it/models/course.dart';
 import 'package:learn_it/services/auth.dart';
 import 'package:learn_it/services/coursedatabase.dart';
+import 'package:learn_it/shared/loading.dart';
 import 'package:provider/provider.dart';
 
 class Library extends StatefulWidget {
@@ -54,7 +55,12 @@ class _CourseListState extends State<CourseList> {
   @override
   Widget build(BuildContext context) {
     final courses = Provider.of<List<Course>?>(context);
-    if (courses!.isEmpty) {
+    if (courses == null) {
+      return const Center(
+        child: Loading(),
+      );
+    }
+    if (courses.isEmpty) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
