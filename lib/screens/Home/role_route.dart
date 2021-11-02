@@ -3,6 +3,7 @@ import 'package:learn_it/models/user.dart';
 import 'package:learn_it/screens/Home/Student/student_nav.dart';
 import 'package:learn_it/screens/Home/Teacher/teacher_nav.dart';
 import 'package:learn_it/services/userdatabase.dart';
+import 'package:learn_it/shared/loading.dart';
 import 'package:provider/provider.dart';
 
 class Roles extends StatefulWidget {
@@ -28,7 +29,7 @@ class _RolesState extends State<Roles> {
           }
         } else {
           // Change it with Loading widget
-          return const Text('Error');
+          return const Loading();
         }
       },
     );
