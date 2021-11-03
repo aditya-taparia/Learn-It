@@ -1,0 +1,130 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.learn_it"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+9        android:targetSdkVersion="30" />
+10    <!--
+11         Flutter needs it to communicate with the running application
+12         to allow setting breakpoints, to provide hot reload, etc.
+13    -->
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\debug\AndroidManifest.xml:6:5-66
+14-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\debug\AndroidManifest.xml:6:22-64
+15    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+15-->[:file_picker] C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\build\file_picker\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-80
+15-->[:file_picker] C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\build\file_picker\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-77
+16
+17    <queries>
+17-->[:file_picker] C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\build\file_picker\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-15:15
+18        <intent>
+18-->[:file_picker] C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\build\file_picker\intermediates\library_manifest\debug\AndroidManifest.xml:10:9-14:18
+19            <action android:name="android.intent.action.GET_CONTENT" />
+19-->[:file_picker] C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\build\file_picker\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-72
+19-->[:file_picker] C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\build\file_picker\intermediates\library_manifest\debug\AndroidManifest.xml:11:21-69
+20
+21            <data android:mimeType="*/*" />
+21-->[:file_picker] C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\build\file_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-44
+21-->[:file_picker] C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\build\file_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:19-41
+22        </intent>
+23    </queries>
+24
+25    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+25-->[:open_file] C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-83
+25-->[:open_file] C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-80
+26
+27    <application
+27-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:3:4-40:19
+28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+28-->[androidx.core:core:1.1.0] C:\Users\cyril\.gradle\caches\transforms-2\files-2.1\2e94107f30f39be366a17347c2bf100b\core-1.1.0\AndroidManifest.xml:24:18-86
+29        android:debuggable="true"
+30        android:icon="@mipmap/ic_launcher"
+30-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:5:9-43
+31        android:label="Learn It" >
+31-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:4:9-33
+32        <activity
+32-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:6:9-34:20
+33            android:name="com.example.learn_it.MainActivity"
+33-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:7:13-41
+34            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+34-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:10:13-163
+35            android:hardwareAccelerated="true"
+35-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:11:13-47
+36            android:launchMode="singleTop"
+36-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:8:13-43
+37            android:theme="@style/LaunchTheme"
+37-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:9:13-47
+38            android:windowSoftInputMode="adjustResize" >
+38-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:12:13-55
+39
+40            <!--
+41                 Specifies an Android theme to apply to this Activity as soon as
+42                 the Android process has started. This theme is visible to the user
+43                 while the Flutter UI initializes. After that, this theme continues
+44                 to determine the Window background behind the Flutter UI.
+45            -->
+46            <meta-data
+46-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:17:13-20:17
+47                android:name="io.flutter.embedding.android.NormalTheme"
+47-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:18:15-70
+48                android:resource="@style/NormalTheme" />
+48-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:19:15-52
+49            <!--
+50                 Displays an Android View that continues showing the launch screen
+51                 Drawable until Flutter paints its first frame, then this splash
+52                 screen fades out. A splash screen is useful to avoid any visual
+53                 gap between the end of Android's launch screen and the painting of
+54                 Flutter's first frame.
+55            -->
+56            <meta-data
+56-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:26:13-29:17
+57                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+57-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:27:15-79
+58                android:resource="@drawable/launch_background" />
+58-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:28:15-61
+59
+60            <intent-filter>
+60-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:30:13-33:29
+61                <action android:name="android.intent.action.MAIN" />
+61-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:31:17-68
+61-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:31:25-66
+62
+63                <category android:name="android.intent.category.LAUNCHER" />
+63-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:32:17-76
+63-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:32:27-74
+64            </intent-filter>
+65        </activity>
+66        <!--
+67             Don't delete the meta-data below.
+68             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+69        -->
+70        <meta-data
+70-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:37:9-39:33
+71            android:name="flutterEmbedding"
+71-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:38:13-44
+72            android:value="2" />
+72-->C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\android\app\src\main\AndroidManifest.xml:39:13-30
+73
+74        <provider
+74-->[:open_file] C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-21:20
+75            android:name="com.crazecoder.openfile.FileProvider"
+75-->[:open_file] C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-64
+76            android:authorities="com.example.learn_it.fileProvider.com.crazecoder.openfile"
+76-->[:open_file] C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-88
+77            android:exported="false"
+77-->[:open_file] C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-37
+78            android:grantUriPermissions="true" >
+78-->[:open_file] C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-47
+79            <meta-data
+79-->[:open_file] C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-20:53
+80                android:name="android.support.FILE_PROVIDER_PATHS"
+80-->[:open_file] C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:19:17-67
+81                android:resource="@xml/filepaths" />
+81-->[:open_file] C:\Users\cyril\OneDrive\Desktop\Desktop\Chat App\Learn-It\build\open_file\intermediates\library_manifest\debug\AndroidManifest.xml:20:17-50
+82        </provider>
+83    </application>
+84
+85</manifest>
