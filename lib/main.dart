@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_it/chat_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
           title: const Text('Home'),
           centerTitle: true,
         ),
-        body: const Home(),
+        body: ChatScreen(),
       ),
     );
   }
