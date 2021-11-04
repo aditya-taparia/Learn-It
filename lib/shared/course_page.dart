@@ -196,64 +196,77 @@ class _CoursePageState extends State<CoursePage> {
                             },
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
-                          child: InkWell(
-                            child: Container(
-                              height: 190,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Colors.blueAccent.withOpacity(0.9)),
-                              child: Padding(
-                                padding: const EdgeInsets.fromLTRB(8, 10, 8, 8),
-                                child: Text(
-                                  "Registered Students",
-                                  style: TextStyle(fontSize: 20),
+                        widget.course.teacherid == user!.userid
+                            ? Padding(
+                                padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                                child: InkWell(
+                                  child: Container(
+                                    height: 190,
+                                    width: 150,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        color:
+                                            Colors.blueAccent.withOpacity(0.9)),
+                                    child: Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          8, 10, 8, 8),
+                                      child: Text(
+                                        "Registered Students",
+                                        style: TextStyle(fontSize: 20),
+                                      ),
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Scaffold(
+                                                  appBar: AppBar(
+                                                    backgroundColor:
+                                                        Color.fromRGBO(
+                                                            0, 75, 141, 1),
+                                                  ),
+                                                  body: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .stretch,
+                                                    children: [
+                                                      Container(
+                                                        height: 500,
+                                                        child: ListView.builder(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                    .all(8),
+                                                            itemCount: widget
+                                                                .course
+                                                                .students
+                                                                .length,
+                                                            itemBuilder:
+                                                                (BuildContext
+                                                                        context,
+                                                                    int index) {
+                                                              return Text(
+                                                                widget.course
+                                                                        .students[
+                                                                    index],
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        20,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w300),
+                                                              );
+                                                            }),
+                                                      )
+                                                    ],
+                                                  ),
+                                                )));
+                                  },
                                 ),
+                              )
+                            : Container(
+                                width: 0,
                               ),
-                            ),
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Scaffold(
-                                            appBar: AppBar(
-                                              backgroundColor:
-                                                  Color.fromRGBO(0, 75, 141, 1),
-                                            ),
-                                            body: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.stretch,
-                                              children: [
-                                                Container(
-                                                  height: 500,
-                                                  child: ListView.builder(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              8),
-                                                      itemCount: widget.course
-                                                          .students.length,
-                                                      itemBuilder:
-                                                          (BuildContext context,
-                                                              int index) {
-                                                        return Text(
-                                                          widget.course
-                                                              .students[index],
-                                                          style: TextStyle(
-                                                              fontSize: 20,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w300),
-                                                        );
-                                                      }),
-                                                )
-                                              ],
-                                            ),
-                                          )));
-                            },
-                          ),
-                        ),
                       ],
                     ),
                   ),
@@ -305,18 +318,28 @@ class _CoursePageState extends State<CoursePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      widget.course.students.contains(user!.userid)
-                          ? SizedBox(
-                              width: 150,
-                              height: 50,
-                              child: ElevatedButton(
-                                  onPressed: null, child: Text("Enrolled")),
-                            )
+                      widget.course.teacherid != user.userid
+                          ? widget.course.students.contains(user.userid)
+                              ? SizedBox(
+                                  width: 150,
+                                  height: 50,
+                                  child: ElevatedButton(
+                                      onPressed: null, child: Text("Enrolled")),
+                                )
+                              : SizedBox(
+                                  width: 150,
+                                  height: 50,
+                                  child: ElevatedButton(
+                                      onPressed: () {},
+                                      child: Text("Enrolled")))
                           : SizedBox(
                               width: 150,
                               height: 50,
                               child: ElevatedButton(
-                                  onPressed: () {}, child: Text("Enrolled"))),
+                                onPressed: () {},
+                                child: Text('Edit Description'),
+                              ),
+                            ),
                       SizedBox(
                           width: 150,
                           height: 50,
@@ -341,18 +364,26 @@ class _CoursePageState extends State<CoursePage> {
                                         builder: (context) => const Upload()));
                               },
                               child: Text("Upload"))),
-                      SizedBox(
-                        width: 150,
-                        height: 50,
-                        child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const Nofound()));
-                            },
-                            child: Text("Pending work")),
-                      ),
+                      widget.course.teacherid != user.userid
+                          ? SizedBox(
+                              width: 150,
+                              height: 50,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const Nofound()));
+                                  },
+                                  child: Text("Pending work")),
+                            )
+                          : SizedBox(
+                              width: 150,
+                              height: 50,
+                              child: ElevatedButton(
+                                  onPressed: () {}, child: Text("Add work")),
+                            )
                     ],
                   ),
                   SizedBox(
@@ -361,18 +392,31 @@ class _CoursePageState extends State<CoursePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      SizedBox(
-                          width: 150,
-                          height: 50,
-                          child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const Calendar()));
-                              },
-                              child: Text("Calendar"))),
+                      widget.course.teacherid != user.userid
+                          ? SizedBox(
+                              width: 150,
+                              height: 50,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const Calendar()));
+                                  },
+                                  child: Text("Calendar")))
+                          : SizedBox(
+                              width: 150,
+                              height: 50,
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const Calendar()));
+                                  },
+                                  child: Text("Add Event"))),
                       SizedBox(
                         width: 150,
                         height: 50,
