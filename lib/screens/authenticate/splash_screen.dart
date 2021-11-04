@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_it/screens/authenticate/sign_in.dart';
 
@@ -7,14 +8,77 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.of(context)
-                .pushReplacement(AnimatedRoute(child: const SignIn()));
-          },
-          child: const Text('Go!'),
+      backgroundColor: Colors.white,
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Column(
+              children: [
+                SizedBox(
+                  width: 250.0,
+                  child: TextLiquidFill(
+                    text: 'LearnIt',
+                    waveColor: Color.fromRGBO(0, 75, 141, 1),
+                    boxBackgroundColor: Colors.white,
+                    textStyle: TextStyle(
+                      fontSize: 40.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    boxHeight: 100.0,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 40, 20, 40),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                      child: Text(
+                        "Welcome to Learnit, Where anyone can follow their passion to Study, Learn, Teach from anyplace at anytime",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Image.asset(
+              'assets/Learn It Logo.png',
+              height: 200.0,
+              fit: BoxFit.cover,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  primary: Color.fromRGBO(0, 75, 141, 1),
+                  padding: EdgeInsets.symmetric(horizontal: 150, vertical: 16),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(30.0))),
+              onPressed: () {
+                Navigator.of(context)
+                    .pushReplacement(AnimatedRoute(child: const SignIn()));
+              },
+              child: const Text(
+                'LOGIN',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              ),
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        elevation: 0,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(120, 0, 0, 0),
+          child: Text("Made by team Aviat'O"),
         ),
       ),
     );
@@ -27,7 +91,7 @@ class AnimatedRoute extends PageRouteBuilder {
   AnimatedRoute({required this.child})
       : super(
           pageBuilder: (context, animation, secondaryAnimation) => child,
-          transitionDuration: const Duration(seconds: 1),
+          transitionDuration: const Duration(milliseconds: 1000),
         );
 
   @override
