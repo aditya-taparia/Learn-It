@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_it/screens/Home/Teacher/Library/teach_library.dart';
 import 'package:learn_it/screens/Settings/setting.dart';
 
 class TeacherNav extends StatefulWidget {
@@ -15,9 +16,7 @@ class _TeacherNavState extends State<TeacherNav> {
     const Center(
       child: Text('Teacher Dashboard'),
     ),
-    const Center(
-      child: Text('Library'),
-    ),
+    const Tlibrary(),
     const Center(
       child: Text('Chat Page'),
     ),
