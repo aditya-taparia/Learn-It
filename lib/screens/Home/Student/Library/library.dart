@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:learn_it/models/course.dart';
 import 'package:learn_it/models/user.dart';
+import 'package:learn_it/screens/Home/Student/Library/filtered_page.dart';
 import 'package:learn_it/shared/course_page.dart';
 import 'package:learn_it/services/coursedatabase.dart';
-import 'package:learn_it/shared/loading.dart';
+import 'package:learn_it/shared/loading_course.dart';
 import 'package:provider/provider.dart';
 
 class Library extends StatefulWidget {
@@ -14,6 +15,13 @@ class Library extends StatefulWidget {
 }
 
 class _LibraryState extends State<Library> {
+  final _formKey = GlobalKey<FormState>();
+  final List<String> _list = <String>['Course Name', 'Teacher Name'];
+  final List<String> _searchbylist = <String>['coursename', 'teachername'];
+  late String _searchText = '';
+  late String _selectedItem = 'Course Name';
+  late String _searchby = 'coursename';
+
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<Course>?>.value(
@@ -39,6 +47,161 @@ class _LibraryState extends State<Library> {
         ),
         body: const CourseList(),
         backgroundColor: const Color(0x00CCCCCC),
+        floatingActionButton: FloatingActionButton(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.5),
+          ),
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return StatefulBuilder(builder: (context, setState) {
+                  return AlertDialog(
+                    title: const Center(
+                      child: Text(
+                        'Filter Your Choice',
+                        style: TextStyle(
+                          fontSize: 22.5,
+                          fontWeight: FontWeight.w500,
+                          color: Color.fromRGBO(0, 75, 141, 1),
+                        ),
+                      ),
+                    ),
+                    content: Form(
+                      key: _formKey,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 2.0,
+                              horizontal: 0.0,
+                            ),
+                            child: TextFormField(
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please Enter Keyword';
+                                }
+                                return null;
+                              },
+                              onChanged: (value) {
+                                setState(() {
+                                  _searchText = value;
+                                });
+                              },
+                              initialValue: _searchText,
+                              decoration: const InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.search_rounded,
+                                  color: Color.fromRGBO(0, 75, 141, 1),
+                                  size: 30.0,
+                                ),
+                                prefixIconColor: Color.fromRGBO(0, 75, 141, 1),
+                                border: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(50.0)),
+                                ),
+                                hintText: 'Search',
+                                isDense: true,
+                                contentPadding:
+                                    EdgeInsets.symmetric(vertical: 3.0),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 15.0,
+                          ),
+                          const Text(
+                            'Search By',
+                            style: TextStyle(
+                              color: Color.fromRGBO(0, 75, 141, 1),
+                            ),
+                          ),
+                          Wrap(
+                            spacing: 5.0,
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            children: List<Widget>.generate(
+                              _list.length,
+                              (index) {
+                                return ChoiceChip(
+                                  label: Text(
+                                    _list[index],
+                                    style: const TextStyle(
+                                      color: Color.fromRGBO(0, 75, 141, 1),
+                                    ),
+                                  ),
+                                  selected: _selectedItem == _list[index],
+                                  onSelected: (selected) {
+                                    setState(() {
+                                      _selectedItem = _list[index];
+                                      _searchby = _searchbylist[index];
+                                    });
+                                  },
+                                  selectedColor: Colors.blue[100],
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => FilterPage(
+                                searchText: _searchText,
+                                searchBy: _searchby,
+                              ),
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          'Apply',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w500,
+                            color: Color.fromRGBO(0, 75, 141, 1),
+                          ),
+                        ),
+                        style: ButtonStyle(
+                          overlayColor: MaterialStateColor.resolveWith(
+                              (states) => Colors.blue.withOpacity(0.25)),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text(
+                          'Close',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.red[600],
+                          ),
+                        ),
+                        style: ButtonStyle(
+                          overlayColor: MaterialStateColor.resolveWith(
+                              (states) => Colors.red.withOpacity(0.25)),
+                        ),
+                      ),
+                    ],
+                    actionsAlignment: MainAxisAlignment.spaceEvenly,
+                  );
+                });
+              },
+            );
+          },
+          child: const Icon(
+            Icons.filter_list_rounded,
+            color: Colors.white,
+            size: 32,
+          ),
+          backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
+        ),
       ),
     );
   }
@@ -58,7 +221,7 @@ class _CourseListState extends State<CourseList> {
     final courses = Provider.of<List<Course>?>(context);
     if (courses == null) {
       return const Center(
-        child: Loading(),
+        child: LoadingCourse(),
       );
     }
     if (courses.isEmpty) {
@@ -115,11 +278,24 @@ class CourseTile extends StatelessWidget {
                 ),
               );
             },
+            leading: const CircleAvatar(
+              backgroundImage: AssetImage('assets/sagar.png'),
+            ),
             title: Text(course.coursename),
             subtitle: Text('Taught by ${course.teachername}'),
             // Adding enrolled tag if the user is enrolled
             trailing: course.students.contains(user!.userid)
-                ? const Text("Enrolled")
+                ? Container(
+                    decoration: BoxDecoration(
+                      color: Colors.greenAccent[100],
+                      borderRadius: BorderRadius.circular(100.0),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 5.0,
+                      horizontal: 10.0,
+                    ),
+                    child: const Text("Enrolled"),
+                  )
                 : null),
       ),
     );
