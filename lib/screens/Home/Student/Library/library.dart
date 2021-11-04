@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn_it/models/course.dart';
-import 'package:learn_it/services/auth.dart';
+import 'package:learn_it/models/user.dart';
+import 'package:learn_it/screens/Home/Student/Library/course_page.dart';
 import 'package:learn_it/services/coursedatabase.dart';
 import 'package:learn_it/shared/loading.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +14,6 @@ class Library extends StatefulWidget {
 }
 
 class _LibraryState extends State<Library> {
-  final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<Course>?>.value(
@@ -23,7 +23,7 @@ class _LibraryState extends State<Library> {
         appBar: AppBar(
           title: const Text('Library'),
           centerTitle: true,
-          actions: <Widget>[
+          /* actions: <Widget>[
             IconButton(
               onPressed: () async {
                 await _auth.signout();
@@ -34,10 +34,11 @@ class _LibraryState extends State<Library> {
                 size: 32,
               ),
             )
-          ],
+          ], */
           backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
         ),
         body: const CourseList(),
+        backgroundColor: const Color(0x00CCCCCC),
       ),
     );
   }
@@ -99,14 +100,27 @@ class CourseTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Add this to use user db
+    final user = Provider.of<Users?>(context);
     return Padding(
       padding: const EdgeInsets.only(top: 8.0),
       child: Card(
         margin: const EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
         child: ListTile(
-          title: Text(course.coursename),
-          subtitle: Text('Taught by ${course.teachername}'),
-        ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CoursePage(course: course),
+                ),
+              );
+            },
+            title: Text(course.coursename),
+            subtitle: Text('Taught by ${course.teachername}'),
+            // Adding enrolled tag if the user is enrolled
+            trailing: course.students.contains(user!.userid)
+                ? const Text("Enrolled")
+                : null),
       ),
     );
   }
