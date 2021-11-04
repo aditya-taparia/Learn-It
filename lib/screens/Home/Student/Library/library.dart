@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn_it/models/course.dart';
 import 'package:learn_it/models/user.dart';
-import 'package:learn_it/screens/Home/Student/Library/course_page.dart';
+import 'package:learn_it/shared/course_page.dart';
 import 'package:learn_it/services/coursedatabase.dart';
 import 'package:learn_it/shared/loading.dart';
 import 'package:provider/provider.dart';
