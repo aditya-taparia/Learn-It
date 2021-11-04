@@ -10,5 +10,3 @@ class UserRole {
 
   UserRole({required this.userid, required this.role});
 }
-
-class UserData {}
