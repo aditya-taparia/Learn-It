@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_it/models/course.dart';
 import 'package:learn_it/models/user.dart';
-
 import 'package:learn_it/screens/Settings/setting.dart';
 import 'package:learn_it/shared/course/calendar.dart';
 import 'package:learn_it/shared/course/upload.dart';
@@ -23,7 +22,8 @@ class _CoursePageState extends State<CoursePage> {
     final user = Provider.of<Users?>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.course.coursename),
+        title: Text(widget.course.coursename
+            .substring(0, widget.course.coursename.length - 6)),
         backgroundColor: Color.fromRGBO(0, 75, 141, 1),
         elevation: 0,
       ),
@@ -116,6 +116,8 @@ class _CoursePageState extends State<CoursePage> {
                     height: 160,
                     child: ListView(
                       scrollDirection: Axis.horizontal,
+                      physics: AlwaysScrollableScrollPhysics(
+                          parent: BouncingScrollPhysics()),
                       children: [
                         Padding(
                           padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
@@ -124,10 +126,10 @@ class _CoursePageState extends State<CoursePage> {
                               height: 190,
                               width: 150,
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.blueAccent),
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Colors.blueAccent.withOpacity(0.8)),
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.fromLTRB(8, 10, 8, 8),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -156,10 +158,10 @@ class _CoursePageState extends State<CoursePage> {
                               height: 190,
                               width: 150,
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.blueAccent),
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Colors.blueAccent.withOpacity(0.9)),
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.fromLTRB(8, 10, 8, 8),
                                 child: Text(
                                   "Course Preview",
                                   style: TextStyle(fontSize: 20),
@@ -176,10 +178,10 @@ class _CoursePageState extends State<CoursePage> {
                               height: 190,
                               width: 150,
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.blueAccent),
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Colors.blueAccent.withOpacity(0.8)),
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.fromLTRB(8, 10, 8, 8),
                                 child: Text(
                                   "Syllabus",
                                   style: TextStyle(fontSize: 20),
@@ -201,10 +203,10 @@ class _CoursePageState extends State<CoursePage> {
                               height: 190,
                               width: 150,
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.blueAccent),
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Colors.blueAccent.withOpacity(0.9)),
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.fromLTRB(8, 10, 8, 8),
                                 child: Text(
                                   "Registered Students",
                                   style: TextStyle(fontSize: 20),
