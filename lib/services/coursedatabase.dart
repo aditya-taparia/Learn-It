@@ -14,6 +14,7 @@ class CourseDatabase {
         teachername: doc['teachername'],
         description: doc['description'],
         students: doc['enrolled_students'],
+        teacherid: doc['teacherid'],
       );
     }).toList();
   }
