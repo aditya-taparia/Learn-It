@@ -58,25 +58,30 @@ final setting_screen = [
     appBar: AppBar(
         title: const Text("Our Story"),
         backgroundColor: const Color.fromRGBO(0, 74, 140, 1)),
-    body: Column(
-      //mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: const <Widget>[
-        SizedBox(
-          height: 20,
-        ),
-        Text(
-          "Done as a part of CSE 312 Software Engeneering and Project Management",
-          style: TextStyle(fontSize: 20, color: Color.fromRGBO(0, 74, 140, 1)),
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        Text(
-          "By a group of jobless people who got together to form team Aviat’O",
-          style: TextStyle(fontSize: 20, color: Color.fromRGBO(0, 74, 140, 1)),
-        ),
-      ],
+    body: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        //mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: const <Widget>[
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            "Done as a part of CSE 312 Software Engeneering and Project Management",
+            style:
+                TextStyle(fontSize: 20, color: Color.fromRGBO(0, 74, 140, 1)),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            "By a group of jobless people who got together to form team Aviat’O",
+            style:
+                TextStyle(fontSize: 20, color: Color.fromRGBO(0, 74, 140, 1)),
+          ),
+        ],
+      ),
     ),
   ),
   Scaffold(
