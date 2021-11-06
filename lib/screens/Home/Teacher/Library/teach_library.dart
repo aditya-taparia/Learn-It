@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn_it/models/course.dart';
 import 'package:learn_it/models/user.dart';
+import 'package:learn_it/screens/Home/Teacher/Library/addcourse.dart';
 import 'package:learn_it/shared/course_page.dart';
 import 'package:learn_it/services/coursedatabase.dart';
 import 'package:learn_it/shared/loading.dart';
@@ -28,7 +29,10 @@ class _TlibraryState extends State<Tlibrary> {
         body: const CourseList(),
         backgroundColor: const Color(0x00CCCCCC),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Addcourse()));
+          },
           backgroundColor: Color.fromRGBO(0, 75, 141, 1),
           child: Icon(
             Icons.add,
