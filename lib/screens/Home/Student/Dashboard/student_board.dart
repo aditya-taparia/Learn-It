@@ -4,7 +4,6 @@ import 'package:learn_it/models/user.dart';
 import 'package:learn_it/services/coursedatabase.dart';
 import 'package:learn_it/services/userdatabase.dart';
 import 'package:learn_it/shared/loading.dart';
-import 'package:learn_it/shared/loading_course.dart';
 import 'package:provider/provider.dart';
 
 class StudentDashboard extends StatelessWidget {
@@ -22,17 +21,50 @@ class StudentDashboard extends StatelessWidget {
             appBar: AppBar(
               title: const Text('Student Dashboard'),
               backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
+              elevation: 0,
               centerTitle: true,
             ),
-            body: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(userRole!.username),
-                  Text(userRole.role),
-                  Codata(usercourse: userRole.courses)
-                ],
-              ),
+            body: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Stack(
+                  children: [
+                    CustomPaint(
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height * 0.3,
+                      ),
+                      painter: HeaderCurvedContainer(),
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.3,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          CircleAvatar(
+                            radius: 65,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            userRole!.username,
+                            style: TextStyle(color: Colors.white, fontSize: 20),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                Text(userRole.role),
+                Codata(usercourse: userRole.courses)
+              ],
             ),
           );
         } else {
@@ -98,4 +130,20 @@ cou(List usercourse, List<Course>? courses) {
     }
   }
   return Text(sub.toString());
+}
+
+class HeaderCurvedContainer extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = Paint()..color = Color.fromRGBO(0, 75, 141, 1);
+    Path path = Path()
+      ..relativeLineTo(0, 150)
+      ..quadraticBezierTo(size.width / 2, 225, size.width, 150)
+      ..relativeLineTo(0, -150)
+      ..close();
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
