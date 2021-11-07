@@ -30,11 +30,11 @@ class _TlibraryState extends State<Tlibrary> {
         backgroundColor: const Color(0x00CCCCCC),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Addcourse()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Addcourse()));
           },
-          backgroundColor: Color.fromRGBO(0, 75, 141, 1),
-          child: Icon(
+          backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
+          child: const Icon(
             Icons.add,
           ),
         ),
@@ -83,7 +83,8 @@ class _CourseListState extends State<CourseList> {
       );
     } else {
       return ListView.builder(
-        physics: AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+        physics: const AlwaysScrollableScrollPhysics(
+            parent: BouncingScrollPhysics()),
         itemCount: courses.length,
         itemBuilder: (context, index) {
           return CourseTile(course: courses[index]);
@@ -119,7 +120,7 @@ class CourseTile extends StatelessWidget {
                 },
                 title: Text(course.coursename),
                 subtitle: Text('Students Enrolled : ${course.students.length}'),
-                trailing: Icon(
+                trailing: const Icon(
                   Icons.keyboard_arrow_right,
                   size: 30,
                   color: Color.fromRGBO(0, 75, 141, 1),

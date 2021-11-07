@@ -15,6 +15,7 @@ class CourseDatabase {
         description: doc['description'],
         students: doc['enrolled_students'],
         teacherid: doc['teacherid'],
+        courseid: doc['courseid'],
       );
     }).toList();
   }
@@ -44,6 +45,7 @@ class Filter {
         description: doc['description'],
         students: doc['enrolled_students'],
         teacherid: doc['teacherid'],
+        courseid: doc['courseid'],
       );
     }).toList();
   }

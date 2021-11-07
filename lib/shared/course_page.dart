@@ -24,7 +24,7 @@ class _CoursePageState extends State<CoursePage> {
       appBar: AppBar(
         title: Text(widget.course.coursename
             .substring(0, widget.course.coursename.length - 6)),
-        backgroundColor: Color.fromRGBO(0, 75, 141, 1),
+        backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -35,7 +35,7 @@ class _CoursePageState extends State<CoursePage> {
               children: [
                 Container(
                   height: MediaQuery.of(context).size.height * 0.2,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                         bottomRight: Radius.circular(50.0),
                         bottomLeft: Radius.circular(50.0)),
@@ -49,7 +49,7 @@ class _CoursePageState extends State<CoursePage> {
                       padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                       child: Text(
                         widget.course.teachername,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 20,
                             color: Colors.white,
                             fontWeight: FontWeight.w400),
@@ -67,7 +67,7 @@ class _CoursePageState extends State<CoursePage> {
                         child: Text(
                           widget.course.coursename
                               .substring(widget.course.coursename.length - 6),
-                          style: TextStyle(fontSize: 30),
+                          style: const TextStyle(fontSize: 30),
                         ),
                       ),
                     ),
@@ -78,11 +78,11 @@ class _CoursePageState extends State<CoursePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Registered : "),
+                const Text("Registered : "),
                 Text(widget.course.students.length.toString()),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Padding(
@@ -90,7 +90,7 @@ class _CoursePageState extends State<CoursePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     "About Course",
                     style: TextStyle(
                       fontSize: 20,
@@ -98,25 +98,25 @@ class _CoursePageState extends State<CoursePage> {
                       fontWeight: FontWeight.w300,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Text(
                     widget.course.description,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 14,
                       // color: Color.fromRGBO(0, 75, 141, 1),
                       fontWeight: FontWeight.w300,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 25,
                   ),
-                  Container(
+                  SizedBox(
                     height: 160,
                     child: ListView(
                       scrollDirection: Axis.horizontal,
-                      physics: AlwaysScrollableScrollPhysics(
+                      physics: const AlwaysScrollableScrollPhysics(
                           parent: BouncingScrollPhysics()),
                       children: [
                         Padding(
@@ -133,16 +133,16 @@ class _CoursePageState extends State<CoursePage> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
+                                    const Text(
                                       "Professor",
                                       style: TextStyle(fontSize: 20),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 15,
                                     ),
                                     Text(
                                       widget.course.teachername,
-                                      style: TextStyle(fontSize: 18),
+                                      style: const TextStyle(fontSize: 18),
                                     ),
                                   ],
                                 ),
@@ -160,8 +160,8 @@ class _CoursePageState extends State<CoursePage> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   color: Colors.blueAccent.withOpacity(0.9)),
-                              child: Padding(
-                                padding: const EdgeInsets.fromLTRB(8, 10, 8, 8),
+                              child: const Padding(
+                                padding: EdgeInsets.fromLTRB(8, 10, 8, 8),
                                 child: Text(
                                   "Course Preview",
                                   style: TextStyle(fontSize: 20),
@@ -180,8 +180,8 @@ class _CoursePageState extends State<CoursePage> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   color: Colors.blueAccent.withOpacity(0.8)),
-                              child: Padding(
-                                padding: const EdgeInsets.fromLTRB(8, 10, 8, 8),
+                              child: const Padding(
+                                padding: EdgeInsets.fromLTRB(8, 10, 8, 8),
                                 child: Text(
                                   "Syllabus",
                                   style: TextStyle(fontSize: 20),
@@ -207,9 +207,8 @@ class _CoursePageState extends State<CoursePage> {
                                         borderRadius: BorderRadius.circular(20),
                                         color:
                                             Colors.blueAccent.withOpacity(0.9)),
-                                    child: Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          8, 10, 8, 8),
+                                    child: const Padding(
+                                      padding: EdgeInsets.fromLTRB(8, 10, 8, 8),
                                       child: Text(
                                         "Registered Students",
                                         style: TextStyle(fontSize: 20),
@@ -223,7 +222,7 @@ class _CoursePageState extends State<CoursePage> {
                                             builder: (context) => Scaffold(
                                                   appBar: AppBar(
                                                     backgroundColor:
-                                                        Color.fromRGBO(
+                                                        const Color.fromRGBO(
                                                             0, 75, 141, 1),
                                                   ),
                                                   body: Column(
@@ -231,7 +230,7 @@ class _CoursePageState extends State<CoursePage> {
                                                         CrossAxisAlignment
                                                             .stretch,
                                                     children: [
-                                                      Container(
+                                                      SizedBox(
                                                         height: 500,
                                                         child: ListView.builder(
                                                             padding:
@@ -249,7 +248,7 @@ class _CoursePageState extends State<CoursePage> {
                                                                 widget.course
                                                                         .students[
                                                                     index],
-                                                                style: TextStyle(
+                                                                style: const TextStyle(
                                                                     fontSize:
                                                                         20,
                                                                     fontWeight:
@@ -270,13 +269,13 @@ class _CoursePageState extends State<CoursePage> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         "Course Rating",
                         style: TextStyle(
                           fontSize: 20,
@@ -286,7 +285,7 @@ class _CoursePageState extends State<CoursePage> {
                       Padding(
                         padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
                         child: Row(
-                          children: [
+                          children: const [
                             Icon(
                               Icons.star,
                               color: Colors.amberAccent,
@@ -312,7 +311,7 @@ class _CoursePageState extends State<CoursePage> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
@@ -320,7 +319,7 @@ class _CoursePageState extends State<CoursePage> {
                     children: [
                       widget.course.teacherid != user.userid
                           ? widget.course.students.contains(user.userid)
-                              ? SizedBox(
+                              ? const SizedBox(
                                   width: 150,
                                   height: 50,
                                   child: ElevatedButton(
@@ -331,23 +330,24 @@ class _CoursePageState extends State<CoursePage> {
                                   height: 50,
                                   child: ElevatedButton(
                                       onPressed: () {},
-                                      child: Text("Enrolled")))
+                                      child: const Text("Enrolled")))
                           : SizedBox(
                               width: 150,
                               height: 50,
                               child: ElevatedButton(
                                 onPressed: () {},
-                                child: Text('Edit Description'),
+                                child: const Text('Edit Description'),
                               ),
                             ),
                       SizedBox(
                           width: 150,
                           height: 50,
                           child: ElevatedButton(
-                              onPressed: () {}, child: Text("Join Classroom"))),
+                              onPressed: () {},
+                              child: const Text("Join Classroom"))),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
@@ -363,7 +363,7 @@ class _CoursePageState extends State<CoursePage> {
                                     MaterialPageRoute(
                                         builder: (context) => const Upload()));
                               },
-                              child: Text("Upload"))),
+                              child: const Text("Upload"))),
                       widget.course.teacherid != user.userid
                           ? SizedBox(
                               width: 150,
@@ -376,17 +376,18 @@ class _CoursePageState extends State<CoursePage> {
                                             builder: (context) =>
                                                 const Nofound()));
                                   },
-                                  child: Text("Pending work")),
+                                  child: const Text("Pending work")),
                             )
                           : SizedBox(
                               width: 150,
                               height: 50,
                               child: ElevatedButton(
-                                  onPressed: () {}, child: Text("Add work")),
+                                  onPressed: () {},
+                                  child: const Text("Add work")),
                             )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
@@ -404,7 +405,7 @@ class _CoursePageState extends State<CoursePage> {
                                             builder: (context) =>
                                                 const Calendar()));
                                   },
-                                  child: Text("Calendar")))
+                                  child: const Text("Calendar")))
                           : SizedBox(
                               width: 150,
                               height: 50,
@@ -416,7 +417,7 @@ class _CoursePageState extends State<CoursePage> {
                                             builder: (context) =>
                                                 const Calendar()));
                                   },
-                                  child: Text("Add Event"))),
+                                  child: const Text("Add Event"))),
                       SizedBox(
                         width: 150,
                         height: 50,
@@ -425,9 +426,9 @@ class _CoursePageState extends State<CoursePage> {
                               Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => Setting()));
+                                      builder: (context) => const Setting()));
                             },
-                            child: Text("Settings")),
+                            child: const Text("Settings")),
                       ),
                     ],
                   ),

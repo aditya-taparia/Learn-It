@@ -4,9 +4,11 @@ class Course {
   final String description;
   final List students;
   final String teacherid;
+  final String courseid;
 
   Course(
       {required this.coursename,
+      required this.courseid,
       required this.teachername,
       required this.description,
       required this.students,
@@ -19,6 +21,7 @@ class Course {
       'description': description,
       'enrolled_students': students,
       'teacherid': teacherid,
+      'courseid': courseid,
     };
   }
 }

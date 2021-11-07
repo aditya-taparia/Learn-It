@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_it/screens/Home/Student/Dashboard/student_board.dart';
 import 'package:learn_it/screens/Home/Student/Library/library.dart';
 import 'package:learn_it/screens/Settings/setting.dart';
 
@@ -13,9 +14,7 @@ class _StudentNavState extends State<StudentNav> {
   int index = 0;
   // screens to be displayed on screen
   final screens = [
-    const Center(
-      child: Text('Student Dashboard'),
-    ),
+    const StudentDashboard(),
     const Library(),
     const Center(
       child: Text('Chat Page'),

@@ -10,6 +10,20 @@ class UserDatabaseService {
       FirebaseFirestore.instance.collection('userdata');
 
   // Update or add user data
+  Future updateUserData(String role, String username) async {
+    return await userdatacollection.doc(uid).set({
+      'username': username,
+      'roles': role,
+      'courses': [],
+    });
+  }
+
+  // Add course to user data
+  Future addCourseInUser(String courseid) async {
+    return await userdatacollection.doc(uid).update({
+      'courses': FieldValue.arrayUnion([courseid])
+    });
+  }
 
   // Getting User role from database
   // User role from snapshot
@@ -17,6 +31,8 @@ class UserDatabaseService {
     return UserRole(
       userid: uid,
       role: snapshot['roles'],
+      username: snapshot['username'],
+      courses: snapshot['courses'],
     );
   }
 

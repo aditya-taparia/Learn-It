@@ -13,8 +13,10 @@ class _UploadState extends State<Upload> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Color.fromRGBO(0, 75, 141, 1)),
-      body: Container(
+      appBar: AppBar(
+        backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
+      ),
+      body: SizedBox(
         width: MediaQuery.of(context).size.width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -31,7 +33,7 @@ class _UploadState extends State<Upload> {
                     final file = result.files.first;
                     openFile(file);
                   },
-                  child: Text("Upload")),
+                  child: const Text("Upload")),
             )
           ],
         ),

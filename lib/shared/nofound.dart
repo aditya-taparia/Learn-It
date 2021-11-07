@@ -12,13 +12,13 @@ class _NofoundState extends State<Nofound> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(0, 75, 141, 1),
+        backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               "Not Found",
               style: TextStyle(fontSize: 20),
             ),
