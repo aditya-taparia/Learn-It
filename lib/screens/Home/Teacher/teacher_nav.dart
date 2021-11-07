@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_it/screens/Home/Teacher/Chat/group_screen.dart';
 import 'package:learn_it/screens/Home/Teacher/Library/teach_library.dart';
 import 'package:learn_it/screens/Settings/setting.dart';
 
@@ -17,9 +18,7 @@ class _TeacherNavState extends State<TeacherNav> {
       child: Text('Teacher Dashboard'),
     ),
     const Tlibrary(),
-    const Center(
-      child: Text('Chat Page'),
-    ),
+    GroupScreen(),
     const Setting(),
   ];
 
