@@ -211,7 +211,7 @@ class _CoursePageState extends State<CoursePage> {
                                   },
                                 ),
                               ),
-                              widget.course.teacherid == user!.userid
+                              widget.course.teacherid == user.userid
                                   ? Padding(
                                       padding: const EdgeInsets.fromLTRB(
                                           0, 0, 10, 0),
