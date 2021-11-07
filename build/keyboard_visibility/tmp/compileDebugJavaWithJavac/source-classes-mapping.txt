@@ -1,4 +1,0 @@
-com/github/adee42/keyboardvisibility/KeyboardVisibilityPlugin.java
- com.github.adee42.keyboardvisibility.KeyboardVisibilityPlugin
-com/github/adee42/keyboardvisibility/BuildConfig.java
- com.github.adee42.keyboardvisibility.BuildConfig

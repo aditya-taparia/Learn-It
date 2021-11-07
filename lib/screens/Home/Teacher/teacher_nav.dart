@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_it/screens/Home/Teacher/Chat/group_screen.dart';
 import 'package:learn_it/screens/Settings/setting.dart';
 
 class TeacherNav extends StatefulWidget {
@@ -19,7 +20,7 @@ class _TeacherNavState extends State<TeacherNav> {
       child: Text('Library'),
     ),
     const Center(
-      child: Text('Chat Page'),
+      child: GroupScreen(),
     ),
     const Setting(),
   ];

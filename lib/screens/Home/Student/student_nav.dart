@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:learn_it/screens/Home/Student/Chat/chat_screen.dart';
+import 'package:learn_it/screens/Home/Student/Chat/group_screen.dart';
+
 import 'package:learn_it/screens/Home/Student/Library/library.dart';
 import 'package:learn_it/screens/Settings/setting.dart';
 
@@ -18,7 +21,7 @@ class _StudentNavState extends State<StudentNav> {
     ),
     const Library(),
     const Center(
-      child: Text('Chat Page'),
+      child: GroupScreen(),
     ),
     const Setting(),
   ];
