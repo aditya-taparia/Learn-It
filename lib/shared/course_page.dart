@@ -8,6 +8,7 @@ import 'package:learn_it/shared/course/calendar.dart';
 import 'package:learn_it/shared/course/upload.dart';
 import 'package:learn_it/shared/nofound.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'loading.dart';
 
 class CoursePage extends StatefulWidget {
@@ -20,6 +21,7 @@ class CoursePage extends StatefulWidget {
 }
 
 class _CoursePageState extends State<CoursePage> {
+  final gmeetcontroller = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<Users?>(context);
@@ -355,12 +357,95 @@ class _CoursePageState extends State<CoursePage> {
                                       child: const Text('Edit Description'),
                                     ),
                                   ),
-                            SizedBox(
-                                width: 150,
-                                height: 50,
-                                child: ElevatedButton(
-                                    onPressed: () {},
-                                    child: const Text("Join Classroom"))),
+                            widget.course.teacherid != user.userid
+                                ? SizedBox(
+                                    //student
+                                    width: 150,
+                                    height: 50,
+                                    child: ElevatedButton(
+                                        onPressed: () {
+                                          gottourl(
+                                              widget.course.url.toString());
+                                        },
+                                        child: const Text("Join Classroom")))
+                                : SizedBox(
+                                    //prof
+                                    width: 150,
+                                    height: 50,
+                                    child: ElevatedButton(
+                                      child: const Text("Add meet"),
+                                      onPressed: () {
+                                        showDialog(
+                                          context: context,
+                                          barrierDismissible:
+                                              false, // user must tap button!
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                              title: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text('Add Meet'),
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                    },
+                                                    child: Icon(
+                                                      Icons.close,
+                                                      color: Colors.red,
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                              content: SingleChildScrollView(
+                                                child: ListBody(
+                                                  children: <Widget>[
+                                                    Text(
+                                                        'Copy Paste your Gmeet link here'),
+                                                    SizedBox(
+                                                      height: 15,
+                                                    ),
+                                                    TextField(
+                                                      autofocus: false,
+                                                      controller:
+                                                          gmeetcontroller,
+                                                      decoration:
+                                                          InputDecoration(
+                                                              prefixIcon: Icon(
+                                                                  Icons.link),
+                                                              contentPadding:
+                                                                  EdgeInsets
+                                                                      .fromLTRB(
+                                                                          20,
+                                                                          15,
+                                                                          20,
+                                                                          15),
+                                                              hintText:
+                                                                  "Gmeet Link",
+                                                              border:
+                                                                  OutlineInputBorder(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            15),
+                                                              )),
+                                                    ),
+                                                    ElevatedButton(
+                                                        onPressed: () =>
+                                                            updateurl(
+                                                                gmeetcontroller,
+                                                                widget.course),
+                                                        child: Text("ADD")),
+                                                  ],
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        );
+                                      },
+                                    ))
                           ],
                         ),
                         const SizedBox(
@@ -482,3 +567,15 @@ addcourseid(Course course, Users user, UserRole? userRole) async {
       .doc(user.userid)
       .update({"courses": b});
 }
+
+updateurl(TextEditingController gmeetcontroller, Course course) {
+  FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+  String a = gmeetcontroller.text;
+  firebaseFirestore
+      .collection('coursedata')
+      .doc(course.courseid)
+      .update({"url": a});
+}
+
+void gottourl(String _url) async =>
+    await canLaunch(_url) ? await launch(_url) : throw 'Could not launch $_url';
