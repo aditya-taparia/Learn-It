@@ -170,7 +170,8 @@ addToDB(
       description: desController.text,
       students: stu,
       teacherid: uid,
-      courseid: courseid);
+      courseid: courseid,
+      url: "");
 
   await firebaseFirestore
       .collection("coursedata")
