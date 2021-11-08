@@ -43,6 +43,7 @@ class ProfDashboard extends StatelessWidget {
                         children: [
                           CircleAvatar(
                             radius: 65,
+                            child: Image.asset('assets/teacher.png'),
                           ),
                         ],
                       ),
