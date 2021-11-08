@@ -433,10 +433,15 @@ class _CoursePageState extends State<CoursePage> {
                                                               )),
                                                     ),
                                                     ElevatedButton(
-                                                        onPressed: () =>
-                                                            updateurl(
-                                                                gmeetcontroller,
-                                                                widget.course),
+                                                        onPressed: () {
+                                                          updateurl(
+                                                              gmeetcontroller,
+                                                              widget.course);
+                                                          gmeetcontroller
+                                                              .clear();
+                                                          Navigator.pop(
+                                                              context);
+                                                        },
                                                         child: Text("ADD")),
                                                   ],
                                                 ),
