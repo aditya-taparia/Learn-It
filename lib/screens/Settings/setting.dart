@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:learn_it/screens/Settings/developers.dart';
 import 'package:learn_it/services/auth.dart';
@@ -52,6 +54,7 @@ final setting_screen = [
   Scaffold(
     appBar: AppBar(
         title: const Text("Our Story"),
+        centerTitle: true,
         backgroundColor: const Color.fromRGBO(0, 74, 140, 1)),
     body: Padding(
       padding: const EdgeInsets.all(8.0),
@@ -82,6 +85,7 @@ final setting_screen = [
   Scaffold(
     appBar: AppBar(
       title: const Text("Privacy Policy"),
+      centerTitle: true,
       backgroundColor: const Color.fromRGBO(0, 74, 140, 1),
     ),
     body: SingleChildScrollView(
@@ -139,159 +143,165 @@ class _SettingState extends State<Setting> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Settings"),
+        centerTitle: true,
         backgroundColor: const Color.fromRGBO(0, 74, 140, 1),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              // account setting
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Account",
-                  style: TextStyle(color: Colors.grey[600], fontSize: 17),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                // account setting
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "Account",
+                    style: TextStyle(color: Colors.grey[600], fontSize: 17),
+                  ),
                 ),
-              ),
-              ListView.builder(
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                itemCount: user_entries.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  user_setting_screen[index]));
-                    },
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        side: const BorderSide(color: Colors.white30, width: 1),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      color: Colors.grey[200],
-                      child: SizedBox(
-                        height: 50,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: <Widget>[
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(5, 0, 10, 0),
-                                  child: account_unison[index],
-                                ),
-                                Text(
-                                  user_entries[index],
-                                  style: const TextStyle(
-                                      // fontWeight: FontWeight.bold,
-                                      fontSize: 18,
-                                      color: Color.fromRGBO(0, 74, 140, 1)),
-                                ),
-                              ],
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
-                              child: Icon(Icons.keyboard_arrow_right,
-                                  color: Color.fromRGBO(0, 74, 140, 1)),
-                            )
-                          ],
+                ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  itemCount: user_entries.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    user_setting_screen[index]));
+                      },
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          side:
+                              const BorderSide(color: Colors.white30, width: 1),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        color: Colors.grey[200],
+                        child: SizedBox(
+                          height: 50,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: <Widget>[
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(5, 0, 10, 0),
+                                    child: account_unison[index],
+                                  ),
+                                  Text(
+                                    user_entries[index],
+                                    style: const TextStyle(
+                                        // fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                        color: Color.fromRGBO(0, 74, 140, 1)),
+                                  ),
+                                ],
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
+                                child: Icon(Icons.keyboard_arrow_right,
+                                    color: Color.fromRGBO(0, 74, 140, 1)),
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                },
-              ),
+                    );
+                  },
+                ),
 
-              // application setting
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Application",
-                  style: TextStyle(color: Colors.grey[600], fontSize: 17),
+                // application setting
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "Application",
+                    style: TextStyle(color: Colors.grey[600], fontSize: 17),
+                  ),
                 ),
-              ),
-              ListView.builder(
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                itemCount: entries.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => setting_screen[index]));
-                    },
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        side: const BorderSide(color: Colors.white30, width: 1),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      color: Colors.grey[200],
-                      child: SizedBox(
-                        height: 50,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: <Widget>[
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(5, 0, 10, 0),
-                                  child: useicon[index],
-                                ),
-                                Text(
-                                  entries[index],
-                                  style: const TextStyle(
-                                      // fontWeight: FontWeight.bold,
-                                      fontSize: 18,
-                                      color: Color.fromRGBO(0, 74, 140, 1)),
-                                ),
-                              ],
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
-                              child: Icon(Icons.keyboard_arrow_right,
-                                  color: Color.fromRGBO(0, 74, 140, 1)),
-                            )
-                          ],
+                ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  itemCount: entries.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => setting_screen[index]));
+                      },
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          side:
+                              const BorderSide(color: Colors.white30, width: 1),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        color: Colors.grey[200],
+                        child: SizedBox(
+                          height: 50,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: <Widget>[
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(5, 0, 10, 0),
+                                    child: useicon[index],
+                                  ),
+                                  Text(
+                                    entries[index],
+                                    style: const TextStyle(
+                                        // fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                        color: Color.fromRGBO(0, 74, 140, 1)),
+                                  ),
+                                ],
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
+                                child: Icon(Icons.keyboard_arrow_right,
+                                    color: Color.fromRGBO(0, 74, 140, 1)),
+                              )
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              SizedBox(
-                width: 300,
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary:
-                          const Color.fromRGBO(0, 74, 140, 1), // background
-                      onPrimary: Colors.white,
-                    ),
-                    onPressed: () async {
-                      await _auth.signout();
-                    },
-                    child: const Text("Logout")),
-              ),
-              const SizedBox(
-                height: 20,
-              )
-            ],
-          ),
-        ],
+                    );
+                  },
+                ),
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                SizedBox(
+                  width: 300,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary:
+                            const Color.fromRGBO(0, 74, 140, 1), // background
+                        onPrimary: Colors.white,
+                      ),
+                      onPressed: () async {
+                        await _auth.signout();
+                      },
+                      child: const Text("Logout")),
+                ),
+                const SizedBox(
+                  height: 20,
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

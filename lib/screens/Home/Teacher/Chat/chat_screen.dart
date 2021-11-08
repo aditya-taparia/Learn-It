@@ -4,24 +4,27 @@ import 'package:learn_it/screens/Home/Teacher/Chat/chat_widgets/message_sent.dar
 
 class ChatScreen extends StatelessWidget {
   final String grpId;
-  const ChatScreen({Key? key, required this.grpId}) : super(key: key);
+  final String grpName;
+  const ChatScreen({Key? key, required this.grpId, required this.grpName})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Group Name"),
+        title: Text(grpName),
+        centerTitle: true,
+        backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Expanded(
-                child: Messages(
+      body: Column(
+        children: [
+          Expanded(
+            child: Messages(
               grpId: grpId,
-            )),
-            MessageSend(grpId)
-          ],
-        ),
+            ),
+          ),
+          MessageSend(grpId)
+        ],
       ),
     );
   }

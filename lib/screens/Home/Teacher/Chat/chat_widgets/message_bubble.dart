@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class MessageBubble extends StatelessWidget {
-  MessageBubble(this.message, this.uid);
+  const MessageBubble(this.message, this.uid, {Key? key}) : super(key: key);
   final String message;
   final String uid;
 
@@ -10,31 +10,37 @@ class MessageBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     var currUid = FirebaseAuth.instance.currentUser?.uid;
     return Row(
-        mainAxisAlignment:
-            (uid == currUid) ? MainAxisAlignment.end : MainAxisAlignment.start,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-                color: Colors.blueGrey,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10),
-                    bottomLeft: Radius.circular(10))),
-            width: 200,
-            height: 50,
-            padding: EdgeInsets.all(14),
-            margin: EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-            child: Column(
-              children: [
-                Text(
-                  message,
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                )
-              ],
+      mainAxisAlignment:
+          (uid == currUid) ? MainAxisAlignment.end : MainAxisAlignment.start,
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            color: uid == currUid ? Colors.blue[100] : Colors.teal[100],
+            borderRadius: BorderRadius.only(
+              topLeft: const Radius.circular(20),
+              topRight: const Radius.circular(20),
+              bottomLeft:
+                  uid == currUid ? const Radius.circular(20) : Radius.zero,
+              bottomRight:
+                  uid == currUid ? Radius.zero : const Radius.circular(20),
             ),
-          )
-        ]);
+          ),
+          width: 180,
+          padding: const EdgeInsets.all(12.5),
+          margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+          child: Column(
+            children: [
+              Text(
+                message,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                ),
+              )
+            ],
+          ),
+        )
+      ],
+    );
   }
 }

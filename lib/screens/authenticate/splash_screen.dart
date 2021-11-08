@@ -9,7 +9,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Container(
+      body: SizedBox(
         width: MediaQuery.of(context).size.width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -21,9 +21,9 @@ class SplashScreen extends StatelessWidget {
                   width: 250.0,
                   child: TextLiquidFill(
                     text: 'LearnIt',
-                    waveColor: Color.fromRGBO(0, 75, 141, 1),
+                    waveColor: const Color.fromRGBO(0, 75, 141, 1),
                     boxBackgroundColor: Colors.white,
-                    textStyle: TextStyle(
+                    textStyle: const TextStyle(
                       fontSize: 40.0,
                       fontWeight: FontWeight.bold,
                     ),
@@ -32,10 +32,10 @@ class SplashScreen extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 40, 20, 40),
-                  child: Container(
+                  child: SizedBox(
                     width: MediaQuery.of(context).size.width,
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                    child: const Padding(
+                      padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                       child: Text(
                         "Welcome to Learnit, Where anyone can follow their passion to Study, Learn, Teach from anyplace at anytime",
                         style: TextStyle(
@@ -53,15 +53,16 @@ class SplashScreen extends StatelessWidget {
               height: 200.0,
               fit: BoxFit.cover,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: Color.fromRGBO(0, 75, 141, 1),
-                  padding: EdgeInsets.symmetric(horizontal: 150, vertical: 16),
+                  primary: const Color.fromRGBO(0, 75, 141, 1),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 150, vertical: 16),
                   shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(30.0))),
+                      borderRadius: BorderRadius.circular(30.0))),
               onPressed: () {
                 Navigator.of(context)
                     .pushReplacement(AnimatedRoute(child: const SignIn()));
@@ -74,10 +75,10 @@ class SplashScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
+      bottomNavigationBar: const BottomAppBar(
         elevation: 0,
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(120, 0, 0, 0),
+          padding: EdgeInsets.fromLTRB(120, 0, 0, 0),
           child: Text("Made by team Aviat'O"),
         ),
       ),

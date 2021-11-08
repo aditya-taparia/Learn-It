@@ -247,6 +247,8 @@ class _CourseListState extends State<CourseList> {
       );
     } else {
       return ListView.builder(
+        physics: const AlwaysScrollableScrollPhysics(
+            parent: BouncingScrollPhysics()),
         itemCount: courses.length,
         itemBuilder: (context, index) {
           return CourseTile(course: courses[index]);

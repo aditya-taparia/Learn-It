@@ -4,7 +4,7 @@ import 'package:learn_it/models/user.dart';
 import 'package:learn_it/screens/Home/Teacher/Library/addcourse.dart';
 import 'package:learn_it/shared/course_page.dart';
 import 'package:learn_it/services/coursedatabase.dart';
-import 'package:learn_it/shared/loading.dart';
+import 'package:learn_it/shared/loading_course.dart';
 import 'package:provider/provider.dart';
 
 class Tlibrary extends StatefulWidget {
@@ -29,6 +29,9 @@ class _TlibraryState extends State<Tlibrary> {
         body: const CourseList(),
         backgroundColor: const Color(0x00CCCCCC),
         floatingActionButton: FloatingActionButton(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.5),
+          ),
           onPressed: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const Addcourse()));
@@ -36,6 +39,8 @@ class _TlibraryState extends State<Tlibrary> {
           backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
           child: const Icon(
             Icons.add,
+            color: Colors.white,
+            size: 32,
           ),
         ),
       ),
@@ -57,7 +62,7 @@ class _CourseListState extends State<CourseList> {
     final courses = Provider.of<List<Course>?>(context);
     if (courses == null) {
       return const Center(
-        child: Loading(),
+        child: LoadingCourse(),
       );
     }
     if (courses.isEmpty) {
@@ -118,6 +123,9 @@ class CourseTile extends StatelessWidget {
                     ),
                   );
                 },
+                leading: const CircleAvatar(
+                  backgroundImage: AssetImage('assets/student.png'),
+                ),
                 title: Text(course.coursename),
                 subtitle: Text('Students Enrolled : ${course.students.length}'),
                 trailing: const Icon(

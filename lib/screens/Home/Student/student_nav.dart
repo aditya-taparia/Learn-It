@@ -83,7 +83,7 @@ class _StudentNavState extends State<StudentNav> {
             ),
             NavigationDestination(
               icon: Icon(
-                Icons.settings_rounded,
+                Icons.settings_outlined,
                 color: Color.fromRGBO(0, 75, 141, 1),
               ),
               selectedIcon: Icon(
