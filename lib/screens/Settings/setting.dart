@@ -1,8 +1,7 @@
-// ignore_for_file: non_constant_identifier_names
-
 import 'package:flutter/material.dart';
 import 'package:learn_it/screens/Settings/developers.dart';
 import 'package:learn_it/services/auth.dart';
+import 'package:learn_it/shared/nofound.dart';
 
 class Setting extends StatefulWidget {
   const Setting({Key? key}) : super(key: key);
@@ -14,13 +13,9 @@ class Setting extends StatefulWidget {
 final AuthService _auth = AuthService();
 
 //user setting accounts
-final List<String> user_entries = <String>[
-  'Update Profile',
-  'Completed Course'
-];
+final List<String> user_entries = <String>['Completed Course'];
 final user_setting_screen = [
-  const Center(),
-  const Center(),
+  const Nofound(),
 ];
 final account_unison = [
   const Icon(
