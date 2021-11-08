@@ -21,7 +21,7 @@ class CoursePage extends StatefulWidget {
 }
 
 class _CoursePageState extends State<CoursePage> {
-  final gmeetcontroller = new TextEditingController();
+  final gmeetcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<Users?>(context);
@@ -377,51 +377,186 @@ class _CoursePageState extends State<CoursePage> {
                                       onPressed: () {
                                         showDialog(
                                           context: context,
-                                          barrierDismissible:
-                                              false, // user must tap button!
                                           builder: (BuildContext context) {
                                             return AlertDialog(
-                                              title: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Text('Add Meet'),
-                                                  TextButton(
-                                                    onPressed: () {
-                                                      Navigator.of(context)
-                                                          .pop();
-                                                    },
-                                                    child: Icon(
-                                                      Icons.close,
-                                                      color: Colors.red,
-                                                    ),
-                                                  )
-                                                ],
+                                              title: const Center(
+                                                child: Text(
+                                                  "Add Meet",
+                                                  style: TextStyle(
+                                                    fontSize: 22.5,
+                                                    fontWeight: FontWeight.w500,
+                                                    color: Color.fromRGBO(
+                                                        0, 75, 141, 1),
+                                                  ),
+                                                ),
                                               ),
+                                              content: Form(
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: <Widget>[
+                                                    Padding(
+                                                      padding: const EdgeInsets
+                                                          .symmetric(
+                                                        vertical: 2.0,
+                                                        horizontal: 0.0,
+                                                      ),
+                                                      child: TextFormField(
+                                                        validator: (val) {
+                                                          return val!.isEmpty
+                                                              ? 'Enter Link'
+                                                              : null;
+                                                        },
+                                                        autofocus: false,
+                                                        controller:
+                                                            gmeetcontroller,
+                                                        decoration:
+                                                            InputDecoration(
+                                                          hintText:
+                                                              'Enter Gmeet Link',
+                                                          border:
+                                                              OutlineInputBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        12.5),
+                                                          ),
+                                                          prefixIcon:
+                                                              const Icon(
+                                                            Icons
+                                                                .add_link_outlined,
+                                                            color:
+                                                                Color.fromRGBO(
+                                                                    0,
+                                                                    75,
+                                                                    141,
+                                                                    1),
+                                                            size: 30.0,
+                                                          ),
+                                                          prefixIconColor:
+                                                              const Color
+                                                                      .fromRGBO(
+                                                                  0,
+                                                                  75,
+                                                                  141,
+                                                                  1),
+                                                          isDense: true,
+                                                          contentPadding:
+                                                              const EdgeInsets
+                                                                      .symmetric(
+                                                                  vertical:
+                                                                      3.0),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              actions: <Widget>[
+                                                TextButton(
+                                                  onPressed: () {
+                                                    updateurl(gmeetcontroller,
+                                                        widget.course);
+                                                    gmeetcontroller.clear();
+                                                    Navigator.pop(context);
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: const [
+                                                            Icon(
+                                                              Icons
+                                                                  .check_circle_outline_rounded,
+                                                              color:
+                                                                  Colors.white,
+                                                            ),
+                                                            Text(
+                                                              ' Gmeet Link Added',
+                                                              style: TextStyle(
+                                                                fontSize: 20,
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        backgroundColor:
+                                                            Colors.green,
+                                                      ),
+                                                    );
+                                                  },
+                                                  child: const Text(
+                                                    'Add Gmeet Link',
+                                                    style: TextStyle(
+                                                      fontSize: 16.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Color.fromRGBO(
+                                                          0, 75, 141, 1),
+                                                    ),
+                                                  ),
+                                                  style: ButtonStyle(
+                                                    overlayColor:
+                                                        MaterialStateColor
+                                                            .resolveWith(
+                                                                (states) => Colors
+                                                                    .blue
+                                                                    .withOpacity(
+                                                                        0.25)),
+                                                  ),
+                                                ),
+                                                TextButton(
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                  child: Text(
+                                                    'Close',
+                                                    style: TextStyle(
+                                                      fontSize: 16.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Colors.red[600],
+                                                    ),
+                                                  ),
+                                                  style: ButtonStyle(
+                                                    overlayColor:
+                                                        MaterialStateColor
+                                                            .resolveWith(
+                                                                (states) => Colors
+                                                                    .red
+                                                                    .withOpacity(
+                                                                        0.25)),
+                                                  ),
+                                                ),
+                                              ],
+                                              actionsAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
+                                              /* 
                                               content: SingleChildScrollView(
                                                 child: ListBody(
                                                   children: <Widget>[
-                                                    Text(
-                                                        'Copy Paste your Gmeet link here'),
-                                                    SizedBox(
-                                                      height: 15,
-                                                    ),
+                                                    
                                                     TextField(
                                                       autofocus: false,
                                                       controller:
                                                           gmeetcontroller,
                                                       decoration:
                                                           InputDecoration(
-                                                              prefixIcon: Icon(
-                                                                  Icons.link),
+                                                              prefixIcon:
+                                                                  const Icon(
+                                                                      Icons
+                                                                          .link),
                                                               contentPadding:
-                                                                  EdgeInsets
-                                                                      .fromLTRB(
-                                                                          20,
-                                                                          15,
-                                                                          20,
-                                                                          15),
+                                                                  const EdgeInsets
+                                                                          .fromLTRB(
+                                                                      20,
+                                                                      15,
+                                                                      20,
+                                                                      15),
                                                               hintText:
                                                                   "Gmeet Link",
                                                               border:
@@ -434,18 +569,13 @@ class _CoursePageState extends State<CoursePage> {
                                                     ),
                                                     ElevatedButton(
                                                         onPressed: () {
-                                                          updateurl(
-                                                              gmeetcontroller,
-                                                              widget.course);
-                                                          gmeetcontroller
-                                                              .clear();
-                                                          Navigator.pop(
-                                                              context);
+                                                          
                                                         },
-                                                        child: Text("ADD")),
+                                                        child:
+                                                            const Text("ADD")),
                                                   ],
                                                 ),
-                                              ),
+                                              ), */
                                             );
                                           },
                                         );

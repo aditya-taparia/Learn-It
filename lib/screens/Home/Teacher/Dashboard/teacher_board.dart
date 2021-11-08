@@ -68,8 +68,17 @@ class ProfDashboard extends StatelessWidget {
                 const SizedBox(
                   height: 5,
                 ),
-                Text(userRole.role.toString().toUpperCase(),
-                    style: const TextStyle(fontSize: 15)),
+                Container(
+                  padding: const EdgeInsets.fromLTRB(10, 2, 10, 2),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.greenAccent[100],
+                  ),
+                  child: Text(
+                      '√ Verified ${userRole.role.toString()[0].toUpperCase()}${userRole.role.toString().substring(1)}',
+                      style:
+                          const TextStyle(fontSize: 15, color: Colors.black)),
+                ),
                 const SizedBox(
                   height: 15,
                 ),
@@ -77,7 +86,12 @@ class ProfDashboard extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [Text("Courses")],
+                    children: const [
+                      Text(
+                        "Your Courses",
+                        style: TextStyle(fontSize: 16),
+                      )
+                    ],
                   ),
                 ),
                 Padding(
@@ -134,7 +148,9 @@ cou(List usercourse, List<Course>? courses) {
   List sub = [];
   if (courses == null) {
     return const Center(
-      child: Text("Loading"),
+      child: CircularProgressIndicator(
+        color: Color.fromRGBO(0, 75, 141, 1),
+      ),
     );
   }
   if (courses.isEmpty) {
@@ -171,8 +187,13 @@ cou(List usercourse, List<Course>? courses) {
                 ),
               );
             },
-            leading: const Icon(Icons.book),
-            title: Text(sub[index]),
+            leading: const Icon(Icons.book, color: Colors.indigo),
+            title: Text(
+              sub[index],
+              style: const TextStyle(
+                fontSize: 18,
+              ),
+            ),
             trailing: Container(
               decoration: BoxDecoration(
                 color: Colors.orangeAccent[100],
@@ -194,9 +215,9 @@ class HeaderCurvedContainer extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()..color = const Color.fromRGBO(0, 75, 141, 1);
     Path path = Path()
-      ..relativeLineTo(0, 150)
-      ..quadraticBezierTo(size.width / 2, 225, size.width, 150)
-      ..relativeLineTo(0, -150)
+      ..relativeLineTo(0, 90)
+      ..quadraticBezierTo(size.width / 2, 225, size.width, 90)
+      ..relativeLineTo(0, -90)
       ..close();
     canvas.drawPath(path, paint);
   }

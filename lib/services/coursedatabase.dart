@@ -47,6 +47,7 @@ class Filter {
         students: doc['enrolled_students'],
         teacherid: doc['teacherid'],
         courseid: doc['courseid'],
+        url: doc['url'],
       );
     }).toList();
   }
