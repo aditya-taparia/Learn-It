@@ -21,10 +21,11 @@ class ProfDashboard extends StatelessWidget {
             appBar: AppBar(
               title: const Text('Professor Dashboard'),
               backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
+              elevation: 0,
               centerTitle: true,
             ),
             body: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Stack(
                   children: [
