@@ -279,7 +279,7 @@ class CourseTile extends StatelessWidget {
               );
             },
             leading: const CircleAvatar(
-              backgroundImage: AssetImage('assets/sagar.png'),
+              backgroundImage: AssetImage('assets/student.png'),
             ),
             title: Text(course.coursename),
             subtitle: Text('Taught by ${course.teachername}'),
