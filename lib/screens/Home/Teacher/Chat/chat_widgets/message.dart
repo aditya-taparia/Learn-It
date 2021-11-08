@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:learn_it/screens/Home/Teacher/Chat/chat_widgets/message_bubble.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:learn_it/shared/loading_course.dart';
 
 class Messages extends StatelessWidget {
   final String grpId;
-  Messages({Key? key, required this.grpId}) : super(key: key);
+  const Messages({Key? key, required this.grpId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +19,11 @@ class Messages extends StatelessWidget {
       stream: _chatStream,
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
-          return Text('Something went wrong');
+          return const Text('Something went wrong');
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Text("Loading");
+          return const LoadingCourse();
         }
 
         return ListView(

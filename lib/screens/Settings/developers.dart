@@ -15,6 +15,7 @@ class _DeveloperState extends State<Developer> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text("Our Developers"),
+        centerTitle: true,
         backgroundColor: const Color.fromRGBO(0, 74, 140, 1),
         elevation: 0,
       ),

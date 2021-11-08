@@ -440,7 +440,7 @@ class _CoursePageState extends State<CoursePage> {
                               height: 50,
                               child: ElevatedButton(
                                   onPressed: () {
-                                    Navigator.pushReplacement(
+                                    Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>

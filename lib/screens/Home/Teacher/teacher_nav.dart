@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_it/screens/Home/Teacher/Chat/group_screen.dart';
+import 'package:learn_it/screens/Home/Teacher/Dashboard/teacher_board.dart';
 import 'package:learn_it/screens/Home/Teacher/Library/teach_library.dart';
 import 'package:learn_it/screens/Settings/setting.dart';
 
@@ -14,11 +15,9 @@ class _TeacherNavState extends State<TeacherNav> {
   int index = 0;
   // screens to be displayed on screen
   final screens = [
-    const Center(
-      child: Text('Teacher Dashboard'),
-    ),
+    const ProfDashboard(),
     const Tlibrary(),
-    GroupScreen(),
+    const GroupScreen(),
     const Setting(),
   ];
 
@@ -84,7 +83,7 @@ class _TeacherNavState extends State<TeacherNav> {
             ),
             NavigationDestination(
               icon: Icon(
-                Icons.settings_rounded,
+                Icons.settings_outlined,
                 color: Color.fromRGBO(0, 75, 141, 1),
               ),
               selectedIcon: Icon(
