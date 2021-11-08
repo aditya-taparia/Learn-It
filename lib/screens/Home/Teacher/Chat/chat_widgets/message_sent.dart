@@ -15,13 +15,28 @@ class _MessageSendState extends State<MessageSend> {
   final _controller = TextEditingController();
   final _db = FirebaseFirestore.instance;
 
+  // function that executes when we click button.
+  var _uname;
+  void getUname() async {
+    await FirebaseFirestore.instance
+        .collection('userdata')
+        .doc(_uid)
+        .get()
+        .then((value) => {_uname = value.data()?["username"]});
+    print(_uname);
+    _sendMessage();
+  }
+
   void _sendMessage() async {
     _controller.clear();
-    await _db
-        .collection('groups')
-        .doc(widget.grpId)
-        .collection('chat')
-        .add({'text': _enteredMessage, 'time': Timestamp.now(), 'uid': _uid});
+
+    print("is empty-----${_enteredMessage.isEmpty}");
+    await _db.collection('groups').doc(widget.grpId).collection('chat').add({
+      'text': _enteredMessage,
+      'time': Timestamp.now(),
+      'uid': _uid,
+      'uname': _uname
+    });
     setState(() {
       _enteredMessage = "";
     });
@@ -49,6 +64,7 @@ class _MessageSendState extends State<MessageSend> {
               });
             },
           )),
+
           //This button sends message.
           TextButton(
             style: TextButton.styleFrom(
@@ -63,8 +79,9 @@ class _MessageSendState extends State<MessageSend> {
                 size: 25,
               ),
             ),
-            onPressed: _enteredMessage.trim().isEmpty ? null : _sendMessage,
+            onPressed: _enteredMessage.trim().isEmpty ? null : getUname,
           ),
+
         ],
       ),
     );
