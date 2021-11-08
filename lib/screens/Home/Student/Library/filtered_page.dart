@@ -20,6 +20,7 @@ class FilterPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text('Filter - "$searchText"'),
+          backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
           centerTitle: true,
         ),
         body: const FilterList(),
@@ -98,7 +99,7 @@ class FilterTile extends StatelessWidget {
               );
             },
             leading: const CircleAvatar(
-              backgroundImage: AssetImage('assets/sagar.png'),
+              backgroundImage: AssetImage('assets/student.png'),
             ),
             title: Text(course.coursename),
             subtitle: Text('Taught by ${course.teachername}'),
