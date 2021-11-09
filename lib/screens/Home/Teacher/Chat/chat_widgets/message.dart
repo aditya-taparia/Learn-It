@@ -31,7 +31,8 @@ class Messages extends StatelessWidget {
           children: snapshot.data!.docs.map((DocumentSnapshot document) {
             Map<String, dynamic> data =
                 document.data()! as Map<String, dynamic>;
-            return MessageBubble(data['text'], data['uid'], data['uname']);
+            return MessageBubble(
+                data['text'], data['uid'], data['uname'], data['role']);
           }).toList(),
         );
       },

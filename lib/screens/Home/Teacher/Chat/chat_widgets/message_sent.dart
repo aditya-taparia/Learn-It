@@ -16,24 +16,36 @@ class _MessageSendState extends State<MessageSend> {
   final _db = FirebaseFirestore.instance;
 
   // function that executes when we click button.
+  var _uname, _role;
   // ignore: prefer_typing_uninitialized_variables
-  var _uname;
   void getUname() async {
     await FirebaseFirestore.instance
         .collection('userdata')
         .doc(_uid)
         .get()
-        .then((value) => {_uname = value.data()?["username"]});
+        .then((value) {
+      _uname = value.data()?["username"];
+      _role = value.data()?["roles"];
+    });
+    print(_uname);
     _sendMessage();
   }
 
   void _sendMessage() async {
     _controller.clear();
     await _db.collection('groups').doc(widget.grpId).collection('chat').add({
-      'text': _enteredMessage,
+      'text': _enteredMessage.trim(),
       'time': Timestamp.now(),
       'uid': _uid,
-      'uname': _uname
+      'uname': _uname,
+      'role': _role
+    });
+    await _db.collection('groups').doc(widget.grpId).update({
+      'time': Timestamp.now(),
+      'recent': _enteredMessage.trim(),
+      'recent-time': Timestamp.now().toDate().hour.toString() +
+          ":" +
+          Timestamp.now().toDate().minute.toString()
     });
     setState(() {
       _enteredMessage = "";
@@ -50,6 +62,8 @@ class _MessageSendState extends State<MessageSend> {
           Expanded(
               child: TextField(
             controller: _controller,
+            maxLines: null,
+            keyboardType: TextInputType.multiline,
             decoration: InputDecoration(
               hintText: 'Enter the message',
               border: OutlineInputBorder(
