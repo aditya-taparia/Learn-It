@@ -68,9 +68,19 @@ class StudentDashboard extends StatelessWidget {
                 const SizedBox(
                   height: 5,
                 ),
-                Text(
-                  userRole.role.toString().toUpperCase(),
-                  style: const TextStyle(fontSize: 15),
+                Container(
+                  padding: const EdgeInsets.fromLTRB(10, 2, 10, 2),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.amber[600],
+                  ),
+                  child: Text(
+                    '${userRole.role.toString()[0].toUpperCase()}${userRole.role.toString().substring(1)}',
+                    style: const TextStyle(
+                      fontSize: 15,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: 15,
@@ -78,14 +88,19 @@ class StudentDashboard extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text("Enrolled Courses"),
-                            //Codata(usercourse: userRole.courses)
-
+                            const Text(
+                              "Enrolled Courses",
+                              style: TextStyle(fontSize: 16),
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
                             Codata(usercourse: userRole.courses),
                           ],
                         ),
@@ -117,11 +132,12 @@ class _CodataState extends State<Codata> {
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<Course>?>.value(
-        value: CourseDatabase().courses,
-        initialData: null,
-        child: Comp(
-          usercourse: widget.usercourse,
-        ));
+      value: CourseDatabase().courses,
+      initialData: null,
+      child: Comp(
+        usercourse: widget.usercourse,
+      ),
+    );
   }
 }
 
@@ -146,12 +162,19 @@ cou(List usercourse, List<Course>? courses) {
   List sub = [];
   if (courses == null) {
     return const Center(
-      child: Text("Loading"),
+      child: CircularProgressIndicator(
+        color: Color.fromRGBO(0, 75, 141, 1),
+      ),
     );
   }
   if (courses.isEmpty) {
     return const Center(
-      child: Text("Empty"),
+      child: Text(
+        "Not Enrolled In Any Course",
+        style: TextStyle(
+          fontSize: 20,
+        ),
+      ),
     );
   } else {
     for (int i = 0; i < courses.length; i++) {
@@ -161,7 +184,7 @@ cou(List usercourse, List<Course>? courses) {
         }
       }
     }
-  } //Text(sub.toString());
+  }
   return ListView.builder(
       itemCount: sub.length,
       scrollDirection: Axis.vertical,
@@ -183,8 +206,16 @@ cou(List usercourse, List<Course>? courses) {
                 ),
               );
             },
-            leading: const Icon(Icons.book),
-            title: Text(sub[index]),
+            leading: const Icon(
+              Icons.book,
+              color: Colors.indigo,
+            ),
+            title: Text(
+              sub[index],
+              style: const TextStyle(
+                fontSize: 18,
+              ),
+            ),
             trailing: Container(
               decoration: BoxDecoration(
                 color: Colors.greenAccent[100],
@@ -206,9 +237,9 @@ class HeaderCurvedContainer extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()..color = const Color.fromRGBO(0, 75, 141, 1);
     Path path = Path()
-      ..relativeLineTo(0, 150)
-      ..quadraticBezierTo(size.width / 2, 225, size.width, 150)
-      ..relativeLineTo(0, -150)
+      ..relativeLineTo(0, 90)
+      ..quadraticBezierTo(size.width / 2, 225, size.width, 90)
+      ..relativeLineTo(0, -90)
       ..close();
     canvas.drawPath(path, paint);
   }
