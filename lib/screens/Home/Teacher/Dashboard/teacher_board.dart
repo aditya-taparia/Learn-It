@@ -155,7 +155,12 @@ cou(List usercourse, List<Course>? courses) {
   }
   if (courses.isEmpty) {
     return const Center(
-      child: Text("Empty"),
+      child: Text(
+        "No Course Created",
+        style: TextStyle(
+          fontSize: 20,
+        ),
+      ),
     );
   } else {
     for (int i = 0; i < courses.length; i++) {
@@ -187,7 +192,10 @@ cou(List usercourse, List<Course>? courses) {
                 ),
               );
             },
-            leading: const Icon(Icons.book, color: Colors.indigo),
+            leading: const Icon(
+              Icons.book,
+              color: Colors.indigo,
+            ),
             title: Text(
               sub[index],
               style: const TextStyle(
