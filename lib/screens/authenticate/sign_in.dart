@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_it/screens/authenticate/sign_up.dart';
 import 'package:learn_it/screens/wrapper.dart';
 import 'package:learn_it/services/auth.dart';
 import 'package:learn_it/shared/loading.dart';
@@ -165,18 +166,27 @@ class _SignInState extends State<SignIn> {
                                   fontSize: 14,
                                 ),
                               ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: const [
-                                  Text("Dont have an account?"),
-                                  Text(
-                                    "  SIGN UP",
-                                    style: TextStyle(
-                                        color: Color.fromRGBO(0, 74, 140, 1),
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(
+                                      builder: (context) => const Register(),
+                                    ),
+                                  );
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: const [
+                                    Text("Dont have an account?"),
+                                    Text(
+                                      "  SIGN UP",
+                                      style: TextStyle(
+                                          color: Color.fromRGBO(0, 74, 140, 1),
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
                               ),
                               const SizedBox(
                                 height: 190,
