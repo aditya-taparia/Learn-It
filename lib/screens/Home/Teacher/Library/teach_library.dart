@@ -25,6 +25,7 @@ class _TlibraryState extends State<Tlibrary> {
           title: const Text('Your Courses'),
           centerTitle: true,
           backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
+          automaticallyImplyLeading: false,
         ),
         body: const CourseList(),
         backgroundColor: const Color(0x00CCCCCC),

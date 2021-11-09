@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_it/models/course.dart';
 import 'package:learn_it/models/user.dart';
@@ -68,9 +67,9 @@ class _CoursePageState extends State<CoursePage> {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                        children: const [
                           Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 75, 0, 0),
+                            padding: EdgeInsets.fromLTRB(0, 75, 0, 0),
                             child: CircleAvatar(
                               backgroundImage: AssetImage('assets/teacher.png'),
                               radius: 75,
@@ -84,30 +83,30 @@ class _CoursePageState extends State<CoursePage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        decoration: BoxDecoration(
-                          color: Colors.greenAccent[200],
-                          borderRadius: BorderRadius.circular(100.0),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 5.0,
-                          horizontal: 10.0,
-                        ),
-                        child:Row(
-                            children:  <Widget>[
-                            Text("Registered : ",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                              ) ,),
-                              Text(widget.course.students.length.toString(),
+                          decoration: BoxDecoration(
+                            color: Colors.greenAccent[200],
+                            borderRadius: BorderRadius.circular(100.0),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 5.0,
+                            horizontal: 10.0,
+                          ),
+                          child: Row(
+                            children: <Widget>[
+                              const Text(
+                                "Registered : ",
                                 style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                              ) ,),
-
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              Text(
+                                widget.course.students.length.toString(),
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
                             ],
-
-                        )
-
-                      ),
+                          )),
                     ],
                   ),
                   const SizedBox(
@@ -129,7 +128,6 @@ class _CoursePageState extends State<CoursePage> {
                         const SizedBox(
                           height: 8,
                         ),
-
                         Text(
                           widget.course.description,
                           style: const TextStyle(
@@ -141,9 +139,8 @@ class _CoursePageState extends State<CoursePage> {
                         const SizedBox(
                           height: 25,
                         ),
-                        Row(
-                          children: [
-                            const Text(
+                        Row(children: [
+                          const Text(
                             "CourseID:  ",
                             style: TextStyle(
                               fontSize: 20,
@@ -151,35 +148,27 @@ class _CoursePageState extends State<CoursePage> {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                            Container(
-                                decoration: BoxDecoration(
-                                  color: Color
-                                      .fromRGBO(
-                                      0,
-                                      75,
-                                      141,
-                                      1),
-                                  borderRadius: BorderRadius.circular(100.0),
-                                ),
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 5.0,
-                                  horizontal: 10.0,
-                                ),
-                                child:Row(
-                                  children:  <Widget>[
-
-                                    Text(
-                                      widget.course.coursename.substring(widget.course.coursename.length - 6),
-                                      style: TextStyle(
-                                        color:Colors.white,
-                                        fontWeight: FontWeight.w500,
-                                      ) ,),
-
-                                  ],
-
-                                )
-
-                            ),
+                          Container(
+                              decoration: BoxDecoration(
+                                color: const Color.fromRGBO(0, 75, 141, 1),
+                                borderRadius: BorderRadius.circular(100.0),
+                              ),
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 5.0,
+                                horizontal: 10.0,
+                              ),
+                              child: Row(
+                                children: <Widget>[
+                                  Text(
+                                    widget.course.coursename.substring(
+                                        widget.course.coursename.length - 6),
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              )),
                         ]),
                         const SizedBox(
                           height: 8,
@@ -201,15 +190,17 @@ class _CoursePageState extends State<CoursePage> {
                                     height: 190,
                                     width: 250,
                                     decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                          colors: [
-                                            const Color(0xFF009ffd),
-                                            const Color(0xff5b5bc9),
-                                          ],),
-                                        borderRadius: BorderRadius.circular(20),
+                                      gradient: const LinearGradient(
+                                        colors: [
+                                          Color(0xFF009ffd),
+                                          Color(0xff5b5bc9),
+                                        ],
                                       ),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
                                     child: Padding(
-                                      padding: const EdgeInsets.fromLTRB(8, 10, 8, 8),
+                                      padding: const EdgeInsets.fromLTRB(
+                                          8, 10, 8, 8),
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -217,23 +208,20 @@ class _CoursePageState extends State<CoursePage> {
                                           const Text(
                                             "Professor",
                                             textAlign: TextAlign.center,
-
                                             style: TextStyle(
-                                                fontSize: 20,
+                                              fontSize: 20,
                                               color: Colors.white,
                                             ),
-
                                           ),
                                           const SizedBox(
                                             height: 15,
                                           ),
                                           Text(
                                             widget.course.teachername,
-                                            style:
-                                                const TextStyle(
-                                                    fontSize: 18,
-                                                color:Colors.white,
-                                                ),
+                                            style: const TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.white,
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -249,20 +237,21 @@ class _CoursePageState extends State<CoursePage> {
                                     height: 190,
                                     width: 250,
                                     decoration: BoxDecoration(
-                                      gradient: LinearGradient(
+                                      gradient: const LinearGradient(
                                         colors: [
-                                          const Color(0xFF009ffd),
-                                          const Color(0xff5b5bc9),
-                                        ],),
-                                        borderRadius: BorderRadius.circular(20),
-                                        ),
+                                          Color(0xFF009ffd),
+                                          Color(0xff5b5bc9),
+                                        ],
+                                      ),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
                                     child: const Padding(
                                       padding: EdgeInsets.fromLTRB(8, 10, 8, 8),
                                       child: Text(
                                         "Course Preview",
                                         style: TextStyle(
-                                            fontSize: 20,
-                                          color:Colors.white,
+                                          fontSize: 20,
+                                          color: Colors.white,
                                         ),
                                       ),
                                     ),
@@ -277,21 +266,22 @@ class _CoursePageState extends State<CoursePage> {
                                     height: 190,
                                     width: 250,
                                     decoration: BoxDecoration(
-                                      gradient: LinearGradient(
+                                      gradient: const LinearGradient(
                                         colors: [
-                                          const Color(0xFF009ffd),
-                                          const Color(0xff5b5bc9),
-                                        ],),
-                                        borderRadius: BorderRadius.circular(20),
-                                       ),
+                                          Color(0xFF009ffd),
+                                          Color(0xff5b5bc9),
+                                        ],
+                                      ),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
                                     child: const Padding(
                                       padding: EdgeInsets.fromLTRB(8, 10, 8, 8),
                                       child: Text(
                                         "Syllabus",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                            fontSize: 20,
-                                          color:Colors.white,
+                                          fontSize: 20,
+                                          color: Colors.white,
                                         ),
                                       ),
                                     ),
@@ -422,12 +412,11 @@ class _CoursePageState extends State<CoursePage> {
                         const SizedBox(
                           height: 40,
                         ),
-                         Text('Class Room Options',
-                             style:TextStyle(
-                               fontSize: 20,
-                               fontWeight: FontWeight.w500,
-                             )
-                         ),
+                        const Text('Class Room Options',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            )),
                         const SizedBox(
                           height: 15,
                         ),
@@ -815,6 +804,7 @@ updateurl(TextEditingController gmeetcontroller, Course course) {
 
 void gottourl(String _url) async =>
     await canLaunch(_url) ? await launch(_url) : throw 'Could not launch $_url';
+
 class HeaderCurvedContainer extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
@@ -830,4 +820,3 @@ class HeaderCurvedContainer extends CustomPainter {
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
-

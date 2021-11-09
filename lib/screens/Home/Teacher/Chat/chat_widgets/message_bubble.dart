@@ -18,7 +18,7 @@ class MessageBubble extends StatelessWidget {
           (uid == currUid) ? MainAxisAlignment.end : MainAxisAlignment.start,
       children: [
         Container(
-          constraints: BoxConstraints(maxWidth: 300),
+          constraints: const BoxConstraints(maxWidth: 300),
           decoration: BoxDecoration(
             color: uid == currUid ? Colors.blue[100] : Colors.teal[100],
             borderRadius: BorderRadius.only(
@@ -31,26 +31,28 @@ class MessageBubble extends StatelessWidget {
             ),
           ),
           padding: const EdgeInsets.all(13),
-          margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+          margin: const EdgeInsets.fromLTRB(5, 2, 5, 2),
           child: Column(
             children: [
               Text.rich(
                 TextSpan(
                   text: uname + "\n ",
                   style: TextStyle(
-                    color:
-                        (role == 'teacher') ? Colors.orangeAccent : Colors.blue,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                    color: (role == 'teacher')
+                        ? Colors.teal
+                        : const Color.fromRGBO(0, 75, 141, 1),
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
                   ), // default text style
                   children: <TextSpan>[
                     TextSpan(
-                        text: message,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.normal,
-                          fontSize: 16,
-                        )),
+                      text: message,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16,
+                      ),
+                    ),
                   ],
                 ),
               )

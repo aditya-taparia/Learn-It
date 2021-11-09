@@ -37,11 +37,12 @@ class StartScreen extends StatelessWidget {
                     child: const Padding(
                       padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                       child: Text(
-                        "Welcome to Learnit, Where anyone can follow their passion to Study, Learn, Teach from anyplace at anytime",
+                        "Welcome to LearnIt, a platform where anyone can follow their passion to Study, Learn, Teach from anywhere at anytime...",
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
                         ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),
@@ -75,11 +76,14 @@ class StartScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: const BottomAppBar(
+      bottomNavigationBar: BottomAppBar(
         elevation: 0,
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(120, 0, 0, 0),
-          child: Text("Made by team Aviat'O"),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center, // Optional
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: const [
+            Text("Made by team Aviat'O\n"),
+          ],
         ),
       ),
     );

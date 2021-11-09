@@ -47,18 +47,17 @@ class GroupListState extends State<GroupList> {
               },
               child: Center(
                 child: Container(
-                  margin:
-                      EdgeInsets.only(top: 5.0, bottom: 5.0, left: 5, right: 5),
+                  margin: const EdgeInsets.only(
+                      top: 10.0, bottom: 0, left: 10, right: 10),
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 20.0),
+                      horizontal: 10.0, vertical: 5.0),
                   decoration: const BoxDecoration(
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey,
-                        spreadRadius: 1,
-                        blurRadius: 1,
-                        offset: Offset(0, 3),
-                      )
+                        offset: Offset(0.0, 1.0),
+                        blurRadius: 6.0,
+                      ),
                     ],
                     color: Colors.white,
                     borderRadius: BorderRadius.all(Radius.circular(15.0)),
@@ -69,26 +68,26 @@ class GroupListState extends State<GroupList> {
                       Row(
                         children: <Widget>[
                           const CircleAvatar(
-                              radius: 35.0,
-                              backgroundImage: AssetImage('assets/group.png')),
+                            radius: 35.0,
+                            backgroundImage: AssetImage('assets/group.png'),
+                          ),
                           const SizedBox(width: 15.0),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Text(data['name'],
                                   style: const TextStyle(
-                                    color: Colors.blueAccent,
+                                    color: Color.fromRGBO(0, 75, 141, 1),
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                   )),
                               const SizedBox(height: 5.0),
-                              Container(
+                              SizedBox(
                                 width: MediaQuery.of(context).size.width * 0.45,
                                 child: Text(
                                   data['recent'],
                                   style: const TextStyle(
                                     color: Colors.grey,
-                                    fontWeight: FontWeight.bold,
                                   ),
                                   overflow: TextOverflow.ellipsis,
                                 ),
@@ -104,7 +103,6 @@ class GroupListState extends State<GroupList> {
                             style: const TextStyle(
                               color: Colors.grey,
                               fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
                             ),
                           ),
                           const SizedBox(height: 5.0),

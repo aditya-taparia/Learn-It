@@ -31,11 +31,12 @@ class _GroupScreenState extends State<GroupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(0, 75, 141, 1),
+      backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
       appBar: AppBar(
         title: const Text("Chat Groups"),
         centerTitle: true,
         backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
+        automaticallyImplyLeading: false,
       ),
       body: Column(
         children: [

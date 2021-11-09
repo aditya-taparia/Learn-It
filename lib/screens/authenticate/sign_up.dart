@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_it/screens/wrapper.dart';
 import 'package:learn_it/services/auth.dart';
-import 'package:learn_it/shared/loading.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -21,11 +20,11 @@ class _RegisterState extends State<Register> {
   // For validation
   final _formKey = GlobalKey<FormState>();
 
-  final firstNameEditingController = new TextEditingController();
-  final secondNameEditingController = new TextEditingController();
-  final emailEditingController = new TextEditingController();
-  final passwordEditingController = new TextEditingController();
-  final confirmPasswordEditingController = new TextEditingController();
+  final firstNameEditingController = TextEditingController();
+  final secondNameEditingController = TextEditingController();
+  final emailEditingController = TextEditingController();
+  final passwordEditingController = TextEditingController();
+  final confirmPasswordEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +33,7 @@ class _RegisterState extends State<Register> {
         controller: firstNameEditingController,
         keyboardType: TextInputType.name,
         validator: (value) {
-          RegExp regex = new RegExp(r'^.{3,}$');
+          RegExp regex = RegExp(r'^.{3,}$');
           if (value!.isEmpty) {
             return ("First Name cannot be Empty");
           }
@@ -48,8 +47,8 @@ class _RegisterState extends State<Register> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
-          prefixIcon: Icon(Icons.account_circle),
-          contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+          prefixIcon: const Icon(Icons.account_circle),
+          contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "First Name",
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
@@ -72,8 +71,8 @@ class _RegisterState extends State<Register> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
-          prefixIcon: Icon(Icons.account_circle),
-          contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+          prefixIcon: const Icon(Icons.account_circle),
+          contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Second Name",
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
@@ -101,8 +100,8 @@ class _RegisterState extends State<Register> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
-          prefixIcon: Icon(Icons.mail),
-          contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+          prefixIcon: const Icon(Icons.mail),
+          contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Email",
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
@@ -115,7 +114,7 @@ class _RegisterState extends State<Register> {
         controller: passwordEditingController,
         obscureText: true,
         validator: (value) {
-          RegExp regex = new RegExp(r'^.{6,}$');
+          RegExp regex = RegExp(r'^.{6,}$');
           if (value!.isEmpty) {
             return ("Password is required for login");
           }
@@ -128,8 +127,8 @@ class _RegisterState extends State<Register> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
-          prefixIcon: Icon(Icons.vpn_key),
-          contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+          prefixIcon: const Icon(Icons.vpn_key),
+          contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Password",
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
@@ -153,18 +152,17 @@ class _RegisterState extends State<Register> {
         },
         textInputAction: TextInputAction.done,
         decoration: InputDecoration(
-          prefixIcon: Icon(Icons.vpn_key),
-          contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+          prefixIcon: const Icon(Icons.vpn_key),
+          contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Confirm Password",
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
           ),
         ));
 //role
-    final role = Container(
-        child: Row(
+    final role = Row(
       children: [
-        Text("Login As:"),
+        const Text("Register As:"),
         Row(
           children: [
             Radio(
@@ -174,11 +172,10 @@ class _RegisterState extends State<Register> {
                 setState(() {
                   roletext = "student";
                   _value = int.parse(value.toString());
-                  print(roletext);
                 });
               },
             ),
-            Text("student"),
+            const Text("student"),
           ],
         ),
         Row(
@@ -190,22 +187,21 @@ class _RegisterState extends State<Register> {
                 setState(() {
                   _value = int.parse(value.toString());
                   roletext = "teacher";
-                  print(roletext);
                 });
               },
             ),
-            Text("Professor"),
+            const Text("Professor"),
           ],
         )
       ],
-    ));
+    );
     //signup button
     final signUpButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
-      color: Color.fromRGBO(0, 75, 141, 1),
+      color: const Color.fromRGBO(0, 75, 141, 1),
       child: MaterialButton(
-          padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+          padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
           onPressed: () async {
             if (_formKey.currentState!.validate()) {
@@ -233,7 +229,7 @@ class _RegisterState extends State<Register> {
               }
             }
           },
-          child: Text(
+          child: const Text(
             "SignUp",
             textAlign: TextAlign.center,
             style: TextStyle(
@@ -245,7 +241,8 @@ class _RegisterState extends State<Register> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
-        title: Text("Registration"),
+        title: const Text("Registration"),
+        centerTitle: true,
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -259,21 +256,21 @@ class _RegisterState extends State<Register> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   firstNameField,
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   secondNameField,
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   emailField,
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   passwordField,
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   confirmPasswordField,
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   role,
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   signUpButton,
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                 ],
               ),
             ),

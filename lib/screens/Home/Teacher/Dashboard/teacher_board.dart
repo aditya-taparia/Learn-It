@@ -24,6 +24,7 @@ class ProfDashboard extends StatelessWidget {
               backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
               elevation: 0,
               centerTitle: true,
+              automaticallyImplyLeading: false,
             ),
             body: Column(
               mainAxisAlignment: MainAxisAlignment.start,

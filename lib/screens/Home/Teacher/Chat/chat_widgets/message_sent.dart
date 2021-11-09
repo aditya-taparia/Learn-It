@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -17,7 +19,6 @@ class _MessageSendState extends State<MessageSend> {
 
   // function that executes when we click button.
   var _uname, _role;
-  // ignore: prefer_typing_uninitialized_variables
   void getUname() async {
     await FirebaseFirestore.instance
         .collection('userdata')
@@ -27,7 +28,6 @@ class _MessageSendState extends State<MessageSend> {
       _uname = value.data()?["username"];
       _role = value.data()?["roles"];
     });
-    print(_uname);
     _sendMessage();
   }
 

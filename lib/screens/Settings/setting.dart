@@ -145,6 +145,7 @@ class _SettingState extends State<Setting> {
         title: const Text("Settings"),
         centerTitle: true,
         backgroundColor: const Color.fromRGBO(0, 74, 140, 1),
+        automaticallyImplyLeading: false,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

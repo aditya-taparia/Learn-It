@@ -20,6 +20,7 @@ class _GroupScreenState extends State<GroupScreenS> {
         elevation: 0,
         centerTitle: true,
         backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
+        automaticallyImplyLeading: false,
       ),
       body: Column(
         children: [

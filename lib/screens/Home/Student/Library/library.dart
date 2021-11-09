@@ -31,18 +31,7 @@ class _LibraryState extends State<Library> {
         appBar: AppBar(
           title: const Text('Library'),
           centerTitle: true,
-          /* actions: <Widget>[
-            IconButton(
-              onPressed: () async {
-                await _auth.signout();
-              },
-              icon: const Icon(
-                Icons.logout_rounded,
-                color: Colors.white,
-                size: 32,
-              ),
-            )
-          ], */
+          automaticallyImplyLeading: false,
           backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
         ),
         body: const CourseList(),

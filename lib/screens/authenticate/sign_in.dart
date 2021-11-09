@@ -89,7 +89,7 @@ class _SignInState extends State<SignIn> {
                               const SizedBox(
                                 height: 20,
                               ),
-                              // Email Field
+                              // Password Field
                               TextFormField(
                                 decoration: InputDecoration(
                                     prefixIcon: const Icon(Icons.vpn_key),
@@ -109,6 +109,7 @@ class _SignInState extends State<SignIn> {
                                     password = val;
                                   });
                                 },
+                                obscureText: true,
                               ),
                               const SizedBox(
                                 height: 20,

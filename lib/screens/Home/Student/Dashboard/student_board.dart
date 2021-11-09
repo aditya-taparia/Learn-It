@@ -24,6 +24,7 @@ class StudentDashboard extends StatelessWidget {
               backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
               elevation: 0,
               centerTitle: true,
+              automaticallyImplyLeading: false,
             ),
             body: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -168,11 +169,13 @@ cou(List usercourse, List<Course>? courses) {
     );
   }
   if (courses.isEmpty) {
-    return const Center(
-      child: Text(
-        "Not Enrolled In Any Course",
-        style: TextStyle(
-          fontSize: 20,
+    return const Card(
+      child: Center(
+        child: Text(
+          "Not Enrolled In Any Course",
+          style: TextStyle(
+            fontSize: 20,
+          ),
         ),
       ),
     );
