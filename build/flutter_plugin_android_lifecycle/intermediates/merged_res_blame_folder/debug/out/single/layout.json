@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "D:\\flutter\\Learn-It\\build\\flutter_plugin_android_lifecycle\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\cyril\\.gradle\\caches\\transforms-2\\files-2.1\\4501684f105f116204225bd71498665d\\core-1.6.0\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "D:\\flutter\\Learn-It\\build\\flutter_plugin_android_lifecycle\\intermediates\\res\\merged\\debug\\layout\\custom_dialog.xml",
+        "source": "C:\\Users\\cyril\\.gradle\\caches\\transforms-2\\files-2.1\\4501684f105f116204225bd71498665d\\core-1.6.0\\res\\layout\\custom_dialog.xml"
+    },
+    {
+        "merged": "D:\\flutter\\Learn-It\\build\\flutter_plugin_android_lifecycle\\intermediates\\res\\merged\\debug\\layout\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\cyril\\.gradle\\caches\\transforms-2\\files-2.1\\4501684f105f116204225bd71498665d\\core-1.6.0\\res\\layout\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "D:\\flutter\\Learn-It\\build\\flutter_plugin_android_lifecycle\\intermediates\\res\\merged\\debug\\layout\\notification_action.xml",
+        "source": "C:\\Users\\cyril\\.gradle\\caches\\transforms-2\\files-2.1\\4501684f105f116204225bd71498665d\\core-1.6.0\\res\\layout\\notification_action.xml"
+    },
+    {
+        "merged": "D:\\flutter\\Learn-It\\build\\flutter_plugin_android_lifecycle\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\cyril\\.gradle\\caches\\transforms-2\\files-2.1\\4501684f105f116204225bd71498665d\\core-1.6.0\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "D:\\flutter\\Learn-It\\build\\flutter_plugin_android_lifecycle\\intermediates\\res\\merged\\debug\\layout\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\cyril\\.gradle\\caches\\transforms-2\\files-2.1\\4501684f105f116204225bd71498665d\\core-1.6.0\\res\\layout\\notification_action_tombstone.xml"
+    }
+]

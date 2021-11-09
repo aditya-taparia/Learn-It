@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\flutter\\Learn-It\\build\\flutter_plugin_android_lifecycle\\intermediates\\res\\merged\\debug\\values-uz\\values-uz.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\cyril\\.gradle\\caches\\transforms-2\\files-2.1\\4501684f105f116204225bd71498665d\\core-1.6.0\\res\\values-uz\\values-uz.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "D:\\flutter\\Learn-It\\build\\flutter_plugin_android_lifecycle\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-uz\\values-uz.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\cyril\\.gradle\\caches\\transforms-2\\files-2.1\\4501684f105f116204225bd71498665d\\core-1.6.0\\res\\values-uz\\values-uz.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        }
+    ]
+}

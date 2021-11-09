@@ -14,21 +14,49 @@ class _GroupScreenState extends State<GroupScreen> {
   String grpName = "";
   final _db = FirebaseFirestore.instance.collection('groups');
 
-  void addGrp(grpName) {
+  void addGrp(grpName) async {
     var id = Timestamp.now().toString();
-    _db.doc(id).set({'name': grpName, 'id': id});
+    await _db.doc(id).set({
+      'name': grpName,
+      'id': id,
+      'time': Timestamp.now(),
+      'recent': "",
+      'recent-time': Timestamp.now().toDate().hour.toString() +
+          ":" +
+          Timestamp.now().toDate().minute.toString()
+    });
+    Navigator.of(context).pop();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(0, 75, 141, 1),
       appBar: AppBar(
         title: const Text("Chat Groups"),
         centerTitle: true,
         backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
       ),
       body: Column(
-        children: const [Expanded(child: GroupList())],
+        children: [
+          Expanded(
+              child: Container(
+            padding: const EdgeInsets.only(top: 10),
+            decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(40.0),
+                  topLeft: Radius.circular(40.0),
+                )),
+            child: const ClipRRect(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(40.0),
+                topLeft: Radius.circular(40.0),
+              ),
+              child: GroupList(),
+            ),
+          ))
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         shape: RoundedRectangleBorder(
