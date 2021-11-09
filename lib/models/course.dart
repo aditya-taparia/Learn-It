@@ -5,6 +5,7 @@ class Course {
   final List students;
   final String teacherid;
   final String courseid;
+  final String url;
 
   Course(
       {required this.coursename,
@@ -12,7 +13,8 @@ class Course {
       required this.teachername,
       required this.description,
       required this.students,
-      required this.teacherid});
+      required this.teacherid,
+      required this.url});
 
   Map<String, dynamic> toMap() {
     return {
@@ -22,6 +24,7 @@ class Course {
       'enrolled_students': students,
       'teacherid': teacherid,
       'courseid': courseid,
+      'url': url
     };
   }
 }

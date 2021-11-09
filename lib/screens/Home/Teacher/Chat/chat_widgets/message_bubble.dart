@@ -27,7 +27,7 @@ class MessageBubble extends StatelessWidget {
               bottomLeft:
                   uid == currUid ? const Radius.circular(15) : Radius.zero,
               bottomRight:
-                  uid == currUid ? Radius.zero : const Radius.circular(15),
+                  uid == currUid ? Radius.zero : const Radius.circular(20),
             ),
           ),
           padding: const EdgeInsets.all(13),
@@ -46,7 +46,7 @@ class MessageBubble extends StatelessWidget {
                   children: <TextSpan>[
                     TextSpan(
                         text: message,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.normal,
                           fontSize: 16,

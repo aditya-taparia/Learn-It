@@ -22,7 +22,7 @@ class _TlibraryState extends State<Tlibrary> {
       initialData: null,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Library'),
+          title: const Text('Your Courses'),
           centerTitle: true,
           backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
         ),

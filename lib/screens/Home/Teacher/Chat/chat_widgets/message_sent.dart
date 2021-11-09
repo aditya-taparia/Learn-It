@@ -17,6 +17,7 @@ class _MessageSendState extends State<MessageSend> {
 
   // function that executes when we click button.
   var _uname, _role;
+  // ignore: prefer_typing_uninitialized_variables
   void getUname() async {
     await FirebaseFirestore.instance
         .collection('userdata')
@@ -32,8 +33,6 @@ class _MessageSendState extends State<MessageSend> {
 
   void _sendMessage() async {
     _controller.clear();
-
-    print("is empty-----${_enteredMessage.isEmpty}");
     await _db.collection('groups').doc(widget.grpId).collection('chat').add({
       'text': _enteredMessage.trim(),
       'time': Timestamp.now(),
