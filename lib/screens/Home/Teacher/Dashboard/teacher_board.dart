@@ -154,6 +154,14 @@ cou(List usercourse, List<Course>? courses) {
       ),
     );
   }
+  if (usercourse.isEmpty) {
+    return const Text(
+      "No Course Created",
+      style: TextStyle(
+        fontSize: 20,
+      ),
+    );
+  }
   if (courses.isEmpty) {
     return const Center(
       child: Text(
