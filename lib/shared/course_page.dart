@@ -33,7 +33,8 @@ class _CoursePageState extends State<CoursePage> {
           return Scaffold(
             appBar: AppBar(
               centerTitle: true,
-              title: Text(widget.course.coursename),
+              title: Text(widget.course.coursename
+                  .substring(0, widget.course.coursename.length - 6)),
               backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
               elevation: 0,
             ),
