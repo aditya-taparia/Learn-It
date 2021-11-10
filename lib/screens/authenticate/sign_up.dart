@@ -221,7 +221,7 @@ class _RegisterState extends State<Register> {
                   loading = false;
                 });
               } else {
-                Navigator.of(context).pushReplacement(
+                Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) => const Wrapper(),
                   ),
