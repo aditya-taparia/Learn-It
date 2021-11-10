@@ -35,6 +35,7 @@ class _GroupScreenState extends State<GroupScreen> {
       appBar: AppBar(
         title: const Text("Chat Groups"),
         centerTitle: true,
+        elevation: 0,
         backgroundColor: const Color.fromRGBO(0, 75, 141, 1),
         automaticallyImplyLeading: false,
       ),
