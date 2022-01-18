@@ -1,16 +1,23 @@
-# learn_it
+# Learn It App
 
-A new Flutter project.
+It is a flutter firebase application where teachers as well as students can register themselves and teachers and share their knowledge via recording and adding lectures and students can enroll and study those material. This app also has inbuilt chat and groups for various courses where students can ask their doubts to teachers.
 
-## Getting Started
+## Screenshots of the app:
 
-This project is a starting point for a Flutter application.
+- ### Login And Registration Page:
+<p align="center" width="100%"> <img src="https://github.com/aditya-taparia/Learn-It/blob/main/screenshots/Login%20And%20Registration%20Page.jpeg" /> </p>
 
-A few resources to get you started if this is your first Flutter project:
+- ### Dashboard Page:
+<p align="center" width="100%"> <img src="https://github.com/aditya-taparia/Learn-It/blob/main/screenshots/Dashboard.jpeg" /> </p>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- ### Library Page:
+<p align="center" width="100%"> <img src="https://github.com/aditya-taparia/Learn-It/blob/main/screenshots/Student%20Library%20Page.jpeg" /> <br/> <img src="https://github.com/aditya-taparia/Learn-It/blob/main/screenshots/Teacher%20Library%20Page.jpeg" /> </p>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- ### Course Page:
+<p align="center" width="100%"> <img src="https://github.com/aditya-taparia/Learn-It/blob/main/screenshots/Student%20Course%20Page.jpeg" /> <br/> <img src="https://github.com/aditya-taparia/Learn-It/blob/main/screenshots/Teacher%20Course%20Page.jpeg" /> </p>
+
+- ### Chat Page:
+<p align="center" width="100%"> <img src="https://github.com/aditya-taparia/Learn-It/blob/main/screenshots/Student%20Chat%20Screen.jpeg" /> <br/> <img src="https://github.com/aditya-taparia/Learn-It/blob/main/screenshots/Teacher%20Chat%20Screen.jpeg" /> </p>
+
+- ### Settings Page:
+<p align="center" width="100%"> <img src="https://github.com/aditya-taparia/Learn-It/blob/main/screenshots/Settings%20Page.jpeg" /> </p>
